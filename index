@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="DOC ROI Media Content House — educational prompt builder for measurable, consent-aware landing pages." />
+<title>DOC ROI · Media Content House</title>
+<link rel="icon" type="image/jpeg" href="https://docroi.marketing/wp-content/uploads/2026/05/Logo_Negro_DoC_ROI.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B0F19;--navy:#003B5C;--blue:#0A6FAE;--ice:#D8ECF8;--mist:#EAF6FB;--white:#FFFFFF;
+  --muted:#5B6472;--line:#DDE5EC;--soft:#F5F8FB;--green:#0F766E;--amber:#B45309;--red:#B91C1C;
+  --shadow:0 22px 70px rgba(11,15,25,.12);--radius:22px;
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:#fff}a{color:inherit}.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+button,input,select,textarea{font:inherit}button{cursor:pointer}.hidden{display:none!important}
+
+/* TOP BAR */
+.topbar{position:sticky;top:0;z-index:80;background:#111821;border-bottom:1px solid rgba(255,255,255,.08)}
+.topbar-inner{max-width:1440px;margin:0 auto;height:54px;padding:0 16px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+.top-logo{display:flex;align-items:center}.top-logo img{height:38px;width:auto;display:block}.top-actions{display:flex;align-items:center;gap:10px}.top-btn{border:0;border-radius:999px;background:#fff;color:#0B0F19;padding:10px 22px;font-size:12px;font-weight:900;text-decoration:none}.top-link{color:#D8ECF8;text-decoration:none;font-size:12px;font-weight:800}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;color:#fff;background:
+linear-gradient(90deg,rgba(1,18,29,.97) 0%,rgba(1,30,47,.91) 42%,rgba(0,59,92,.68) 72%,rgba(0,32,51,.72) 100%),
+url('https://docroi.marketing/wp-content/uploads/2026/09/contenidos_factory.png') center/cover no-repeat;min-height:700px;display:flex;align-items:center}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,13,22,.08) 0%,rgba(3,13,22,.02) 55%,rgba(3,13,22,.34) 100%);pointer-events:none}
+.hero:after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 71% 42%,rgba(10,111,174,.12),transparent 29%);pointer-events:none}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;padding:58px 0 62px}
+.hero-kicker{font-size:14px;font-weight:900;letter-spacing:.02em;text-transform:uppercase;margin:0 0 18px}.hero-badge{display:inline-flex;align-items:center;background:#EAF6FB;color:#003B5C;border-radius:999px;padding:10px 16px;font-size:13px;font-weight:900;margin-bottom:30px}
+.hero h1{font-size:clamp(56px,7vw,92px);line-height:.98;letter-spacing:-.058em;margin:0 0 26px;font-weight:900;max-width:760px}.hero p{font-size:21px;line-height:1.64;color:#F3F7FA;margin:0 0 30px;max-width:730px}.hero-cta{display:flex;gap:12px;flex-wrap:wrap}.hero-cta a{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;border-radius:8px;padding:15px 28px;font-weight:900;font-size:16px}.hero-cta .light{background:#fff;color:#0B0F19}.hero-cta .outline{border:1px solid rgba(255,255,255,.45);color:#fff;background:rgba(255,255,255,.04)}
+.hero-visual{position:relative;min-height:430px}.media-board{position:absolute;inset:34px 0 10px 0;border:1px solid rgba(255,255,255,.25);border-radius:12px;background:rgba(5,16,25,.74);backdrop-filter:blur(8px);box-shadow:0 30px 90px rgba(0,0,0,.34);padding:18px;overflow:hidden}.media-board:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 62% 30%,rgba(10,111,174,.38),transparent 24%),linear-gradient(135deg,transparent 0 47%,rgba(216,236,248,.06) 47% 49%,transparent 49% 100%)}
+.board-top{position:relative;display:flex;align-items:center;justify-content:space-between;color:#D8ECF8;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase}.board-canvas{position:relative;height:265px;margin-top:18px;border:1px solid rgba(255,255,255,.12);border-radius:10px;background:linear-gradient(135deg,rgba(10,111,174,.24),rgba(0,59,92,.06));display:grid;place-items:center;overflow:hidden}.board-center{width:110px;height:110px;border-radius:50%;background:#fff;color:#003B5C;display:grid;place-items:center;font-weight:900;text-align:center;box-shadow:0 0 0 16px rgba(255,255,255,.06)}.node{position:absolute;border:1px solid rgba(216,236,248,.35);background:rgba(0,59,92,.62);color:#fff;padding:8px 10px;border-radius:999px;font-size:11px;font-weight:800}.n1{top:34px;left:26px}.n2{top:48px;right:24px}.n3{bottom:42px;left:42px}.n4{bottom:36px;right:32px}.board-caption{position:relative;padding-top:14px}.board-caption strong{display:block;font-size:21px}.board-caption span{color:#B9CAD7;font-size:12px;line-height:1.5}.hero-chip{position:absolute;right:-8px;top:2px;background:#fff;color:#0B0F19;padding:12px 16px;border-radius:12px;font-size:12px;font-weight:900;box-shadow:var(--shadow)}
+.hero-video-card{position:absolute;inset:34px 0 10px 0;border:1px solid rgba(255,255,255,.30);border-radius:14px;background:rgba(6,18,28,.78);box-shadow:0 30px 90px rgba(0,0,0,.34);padding:14px;overflow:hidden;backdrop-filter:blur(8px)}
+.hero-video-thumb{position:relative;height:300px;border-radius:10px;overflow:hidden;background:#06121c}
+.hero-video-thumb img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.92) brightness(.78)}
+.hero-video-thumb:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.02),rgba(0,0,0,.28));pointer-events:none}
+.hero-play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:76px;height:76px;border-radius:50%;background:#fff;color:#0B0F19;display:grid;place-items:center;font-size:31px;font-weight:900;z-index:2;box-shadow:0 16px 42px rgba(0,0,0,.26)}
+.hero-video-meta{padding:15px 2px 2px;position:relative;z-index:2}.hero-video-meta span{display:block;color:#D8ECF8;font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}.hero-video-meta strong{display:block;color:#fff;font-size:22px;line-height:1.18}.hero-video-meta small{display:block;color:#BFD1DE;font-size:12px;line-height:1.5;margin-top:7px}
+
+/* LEARNING INTRO */
+.section{padding:78px 0}.section.soft{background:#F7FAFC}.section.navy{background:#003B5C;color:#fff}.eyebrow{font-size:12px;font-weight:900;letter-spacing:.12em;text-transform:uppercase;color:#0A6FAE}.section-title{font-size:clamp(34px,5vw,54px);line-height:1.08;letter-spacing:-.04em;margin:10px 0 18px;font-weight:900}.section-lede{font-size:18px;line-height:1.75;color:#5B6472;max-width:850px;margin:0}.section.navy .section-lede{color:#EAF6FB}.section.navy .eyebrow{color:#D8ECF8}
+.flowline{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-top:38px}.flow-step{position:relative;border:1px solid #DCE5EC;background:#fff;border-radius:16px;padding:18px 14px;min-height:120px}.flow-step b{display:block;font-size:13px;color:#003B5C;margin-bottom:7px}.flow-step span{font-size:12px;line-height:1.48;color:#5B6472}.flow-step:not(:last-child):after{content:"→";position:absolute;right:-12px;top:44px;z-index:2;background:#F7FAFC;color:#0A6FAE;font-weight:900;width:20px;text-align:center}
+.learning-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:34px}.learning-card{border:1px solid #DFE7ED;border-radius:20px;padding:24px;background:#fff;box-shadow:0 8px 24px rgba(11,15,25,.04)}.learning-card .num{width:40px;height:40px;border-radius:12px;background:#0B0F19;color:#fff;display:grid;place-items:center;font-weight:900;margin-bottom:16px}.learning-card h3{font-size:20px;margin:0 0 10px}.learning-card p{font-size:14px;line-height:1.65;color:#5B6472;margin:0}.learning-card strong{color:#0B0F19}
+
+/* MAIN LEARNING TABS */
+.tabs-shell{border:1px solid #DDE5EC;border-radius:24px;background:#fff;box-shadow:0 12px 44px rgba(11,15,25,.06);overflow:hidden}.tabs-nav{display:flex;gap:0;overflow:auto;border-bottom:1px solid #E7EDF2;background:#F8FAFC}.tab-btn{border:0;background:transparent;padding:18px 22px;font-weight:900;color:#64748B;white-space:nowrap;border-bottom:3px solid transparent}.tab-btn.active{color:#003B5C;border-bottom-color:#0A6FAE;background:#fff}.tab-panel{display:none;padding:30px}.tab-panel.active{display:block}.academic-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:28px;align-items:start}.academic-box{border:1px solid #E1E7ED;border-radius:18px;padding:22px;background:#fff}.academic-box h3{margin:0 0 12px;font-size:20px}.academic-box p,.academic-box li{font-size:14px;line-height:1.7;color:#5B6472}.academic-box ul{margin:0;padding-left:20px}.formula{background:#0B0F19;color:#fff;border-radius:18px;padding:22px;font-size:14px;line-height:1.8}.formula code{color:#D8ECF8}.glossary-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.term{border:1px solid #DDE5EC;border-radius:16px;padding:18px}.term strong{display:block;color:#003B5C;margin-bottom:7px}.term p{margin:0;color:#5B6472;font-size:13px;line-height:1.55}.resource-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.resource-card{border:1px solid #DDE5EC;border-radius:18px;padding:22px;background:linear-gradient(180deg,#fff,#FBFDFF)}.resource-card .label{font-size:11px;color:#0A6FAE;font-weight:900;letter-spacing:.09em;text-transform:uppercase}.resource-card h3{font-size:20px;margin:8px 0 10px}.resource-card p{font-size:13px;line-height:1.55;color:#5B6472;margin:0 0 16px}.resource-actions{display:flex;gap:10px;flex-wrap:wrap}.resource-actions a{display:inline-flex;text-decoration:none;align-items:center;justify-content:center;border-radius:10px;padding:11px 14px;font-size:12px;font-weight:900;background:#0B0F19;color:#fff}.resource-actions a.alt{background:#EAF6FB;color:#003B5C;border:1px solid #D8ECF8}
+
+/* BUILDER */
+.builder-shell{display:grid;grid-template-columns:minmax(0,1.04fr) minmax(380px,.96fr);gap:24px;align-items:start}.builder-card{border:1px solid #DDE5EC;border-radius:24px;background:#fff;box-shadow:0 10px 40px rgba(11,15,25,.06);overflow:hidden}.builder-head{padding:26px 28px 20px;border-bottom:1px solid #EDF2F6}.builder-head h2{font-size:28px;margin:0 0 8px}.builder-head p{margin:0;color:#5B6472;font-size:14px;line-height:1.6}.form-tabs{display:flex;gap:0;overflow:auto;background:#F8FAFC;border-bottom:1px solid #E6EDF2}.form-tab{border:0;background:transparent;padding:15px 16px;font-size:12px;font-weight:900;color:#64748B;border-bottom:3px solid transparent;white-space:nowrap}.form-tab.active{color:#003B5C;background:#fff;border-bottom-color:#0A6FAE}.form-page{display:none;padding:26px}.form-page.active{display:block}.form-page h3{margin:0 0 6px;font-size:20px}.form-page>.lead{margin:0 0 22px;color:#64748B;font-size:13px;line-height:1.6}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}.full{grid-column:1/-1}.field{position:relative}.field label{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:800;color:#334155;margin-bottom:7px}.info-btn{width:18px;height:18px;border-radius:50%;border:1px solid #C9D5DF;background:#fff;color:#64748B;display:inline-grid;place-items:center;font-size:10px;font-weight:900;padding:0;line-height:1}.info-btn:hover,.info-btn.active{background:#EAF6FB;color:#003B5C;border-color:#A9CEE3}.tip{display:none;position:absolute;z-index:12;top:30px;left:0;max-width:330px;background:#0B0F19;color:#fff;border-radius:12px;padding:11px 12px;font-size:11px;line-height:1.5;box-shadow:0 14px 32px rgba(11,15,25,.2)}.tip.show{display:block}input,select,textarea{width:100%;border:1px solid #CBD5E1;border-radius:12px;background:#fff;color:#0B0F19;padding:11px 12px;font-size:13px;outline:none;transition:.18s}textarea{min-height:100px;resize:vertical;line-height:1.55}input:focus,select:focus,textarea:focus{border-color:#0A6FAE;box-shadow:0 0 0 3px rgba(10,111,174,.1)}.hint{font-size:10px;line-height:1.45;color:#94A3B8;margin-top:5px}.fourp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.fourp-card{border:1px solid #D8E5EE;border-radius:17px;padding:16px;background:linear-gradient(180deg,#fff,#FBFDFF)}.fourp-card h4{margin:0 0 14px;display:flex;align-items:center;justify-content:space-between;font-size:14px}.mini-tag{background:#EAF6FB;color:#003B5C;border-radius:999px;padding:5px 8px;font-size:10px}.stack{display:grid;gap:11px}.callout{border:1px solid #BAE6FD;background:#F0F9FF;color:#0C4A6E;border-radius:14px;padding:14px 15px;font-size:12px;line-height:1.6}.callout strong{color:#082F49}.callout.warn{border-color:#FED7AA;background:#FFF7ED;color:#7C2D12}.connection-guide{margin-top:14px;border:1px solid #DDE5EC;border-radius:16px;padding:16px;background:#FBFDFF}.connection-guide strong{display:block;color:#003B5C;margin-bottom:5px}.connection-guide p{margin:0;color:#5B6472;font-size:12px;line-height:1.55}.schema{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-top:14px}.schema code{background:#F8FAFC;border:1px solid #E2E8F0;padding:7px 8px;border-radius:8px;font-size:10px;color:#334155;overflow-wrap:anywhere}
+.builder-footer{padding:20px 26px;border-top:1px solid #E9EFF4;background:#FBFCFD;display:flex;gap:9px;flex-wrap:wrap}.btn{border:0;border-radius:11px;padding:11px 14px;font-size:12px;font-weight:900;display:inline-flex;align-items:center;justify-content:center;gap:7px;text-decoration:none}.btn.primary{background:#0B0F19;color:#fff}.btn.secondary{background:#EAF6FB;color:#003B5C}.btn.ghost{background:#fff;color:#334155;border:1px solid #CBD5E1}.btn.danger{background:#FFF1F2;color:#9F1239;border:1px solid #FECDD3}
+.prompt-card{position:sticky;top:76px}.prompt-actions{display:flex;gap:8px;flex-wrap:wrap;padding:18px 20px;border-bottom:1px solid #E8EEF3}.promptbox{margin:18px 20px 10px;width:calc(100% - 40px);min-height:760px;border:1px solid #1F2A37;border-radius:15px;background:#0B0F19;color:#E5E7EB;padding:18px;font:11.3px/1.58 "SFMono-Regular",Consolas,"Liberation Mono",monospace;resize:vertical}.score-row{padding:0 20px 22px}.score-top{display:flex;justify-content:space-between;align-items:center;font-size:11px;color:#64748B}.meter{height:8px;background:#E2E8F0;border-radius:99px;overflow:hidden;margin:8px 0 12px}.meter span{display:block;height:100%;width:0;background:linear-gradient(90deg,#0A6FAE,#0F766E);transition:.3s}.checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}.check{font-size:10.5px;color:#64748B;display:flex;gap:7px}.check i{font-style:normal;width:15px;height:15px;border-radius:50%;background:#E2E8F0;display:grid;place-items:center;flex:none}.check.ok{color:#0F766E}.check.ok i{background:#D1FAE5;color:#047857}.saved-note{font-size:11px;color:#0F766E;padding-left:4px;align-self:center}
+
+/* DIIIP */
+.diiip{background:#003B5C;color:#fff;padding:72px 24px}.diiip-inner{max-width:980px;margin:0 auto}.diiip-head{text-align:center;max-width:760px;margin:0 auto 34px}.diiip-head span{display:block;color:#D8ECF8;font-size:12px;font-weight:900;letter-spacing:.06em;margin-bottom:12px}.diiip-head h2{font-size:42px;line-height:1.12;margin:0 0 18px;font-weight:900}.diiip-head p{font-size:17px;line-height:1.75;color:#EAF6FB;margin:0}.diiip-list{display:grid;gap:10px}.d-row{background:#fff;color:#0B0F19;border-radius:18px;padding:16px 20px;display:grid;grid-template-columns:64px 1fr;gap:16px;align-items:center;border:1px solid #E5E7EB}.d-letter{width:48px;height:48px;border-radius:14px;background:#0B0F19;color:#fff;display:flex;align-items:center;justify-content:center;font-size:28px;font-weight:900}.d-row strong{display:block;font-size:20px;margin-bottom:4px}.d-row p{margin:0;font-size:14px;line-height:1.5;color:#5B6472}
+
+/* KAI ROI */
+.kai{position:relative;background:linear-gradient(180deg,rgba(11,15,25,.98) 0%,rgba(11,15,25,.94) 54%,rgba(0,59,92,.82) 100%),url('https://docroi.marketing/wp-content/uploads/2026/05/Imagen1.png') center/cover no-repeat;color:#fff;padding:78px 24px;overflow:hidden}.kai-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:34px;align-items:center}.kai-badge{display:inline-block;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);color:#D8ECF8;border-radius:999px;padding:10px 15px;font-size:12px;font-weight:900;letter-spacing:.06em;margin-bottom:22px}.kai h2{font-size:clamp(36px,8vw,58px);line-height:1.04;margin:0 0 22px;font-weight:900;letter-spacing:-1.6px}.kai p{font-size:18px;line-height:1.8;color:#EDF2F7;margin:0 0 22px;max-width:720px}.kai p.small{font-size:16px;color:#C9D6E2;margin:0}.kai-card{background:#fff;color:#0B0F19;border-radius:28px;padding:30px;box-shadow:0 24px 60px rgba(0,0,0,.26)}.kai-card .badge{display:inline-block;background:#EAF6FB;color:#003B5C;border:1px solid #D8ECF8;border-radius:999px;padding:8px 12px;font-size:12px;font-weight:900;letter-spacing:.04em;margin-bottom:16px}.kai-card h3{font-size:clamp(28px,6vw,38px);line-height:1.12;margin:0 0 16px;font-weight:900}.kai-card p{font-size:16px;line-height:1.75;color:#5B6472;margin:0 0 22px}.kai-list{background:#F1F4F8;border:1px solid #E1E7EF;border-radius:20px;padding:18px;margin-bottom:24px}.kai-list strong{display:block;font-size:17px;margin-bottom:10px}.kai-list ul{margin:0;padding-left:20px;color:#5B6472;line-height:1.75;font-size:15px}.kai-btn{display:flex;width:100%;align-items:center;justify-content:center;text-decoration:none;background:#0B0F19;color:#fff;border-radius:12px;padding:14px;font-weight:900}
+
+/* FOOTER */
+.final-footer{background:#000;padding:68px 24px 54px;text-align:center}.final-footer .inner{max-width:920px;margin:0 auto}.footer-logo{display:inline-flex;align-items:center;justify-content:center;text-decoration:none;margin-bottom:24px}.footer-logo img{height:72px;width:auto;display:block}.consult{margin-bottom:28px}.consult a{display:inline-flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;font-size:15px;font-weight:900;letter-spacing:.01em;line-height:1.4;border-bottom:1px solid rgba(255,255,255,.42);padding-bottom:4px}.footer-links{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:14px;color:#D1D5DB;font-size:14px;line-height:1.6;margin-bottom:24px}.footer-links a{color:#D1D5DB;text-decoration:none}.footer-copy{font-size:15px;line-height:1.9;color:#C0C7D1;font-weight:400;letter-spacing:.01em}.footer-copy a{text-decoration:none}.footer-copy span:last-child{display:block;color:#F3F4F6!important;font-weight:500}
+
+.toast{position:fixed;right:22px;bottom:22px;z-index:120;background:#0B0F19;color:#fff;border-radius:12px;padding:12px 15px;font-size:12px;font-weight:800;box-shadow:0 16px 40px rgba(11,15,25,.28);opacity:0;transform:translateY(8px);pointer-events:none;transition:.2s}.toast.show{opacity:1;transform:translateY(0)}
+
+@media(max-width:1050px){.hero{min-height:auto}.hero-grid{grid-template-columns:1fr}.hero-visual{min-height:390px}.flowline{grid-template-columns:repeat(2,1fr)}.flow-step:not(:last-child):after{display:none}.academic-grid,.builder-shell{grid-template-columns:1fr}.prompt-card{position:relative;top:auto}.promptbox{min-height:520px}.learning-grid{grid-template-columns:1fr 1fr}.glossary-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:720px){.wrap{padding:0 16px}.top-link{display:none}.hero-grid{padding:42px 0}.hero h1{font-size:54px}.hero p{font-size:18px}.hero-visual{min-height:340px}.media-board{inset:20px 0 0}.learning-grid,.resource-grid,.fourp,.grid2,.schema,.checks,.glossary-grid,.flowline{grid-template-columns:1fr}.section{padding:60px 0}.tab-panel,.form-page{padding:20px}.diiip-head h2{font-size:34px}.d-row{grid-template-columns:52px 1fr;padding:15px}.d-letter{width:42px;height:42px}.final-footer{padding-left:16px;padding-right:16px}.footer-logo img{height:60px}.builder-footer,.prompt-actions{gap:7px}.btn{width:100%}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="top-logo" href="https://doc-roi-my-cabinet.vercel.app/" target="_blank" rel="noopener" aria-label="Open DOC ROI My Cabinet">
+      <img src="https://docroi.marketing/wp-content/uploads/2026/05/Logo_Negro_DoC_ROI.jpg" alt="DOC ROI">
+    </a>
+    <div class="top-actions">
+      <a class="top-link" href="#learning">Learning Feed</a>
+      <a class="top-btn" href="#builder">Open Tool</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="hero-kicker">STRATEGY SPECIALIZATION · ACQUISITION & GROWTH</div>
+      <div class="hero-badge">TREATMENT · PILL · MEDIA CONTENT HOUSE</div>
+      <h1>Build My<br>Media Content House</h1>
+      <p>A structured learning experience to turn product and buyer knowledge into measurable content, tagged interactions, first-party behavioural signals and acquisition-ready data.</p>
+      <div class="hero-cta">
+        <a class="light" href="#learning">Start the Learning Feed</a>
+        <a class="outline" href="#builder">Open Treatment</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-chip">CONTENT → SIGNAL → DATA</div>
+      <div class="hero-video-card" aria-label="Media Content House introduction video preview">
+        <div class="hero-video-thumb">
+          <img src="https://docroi.marketing/wp-content/uploads/2026/09/contenidos_factory.png" alt="DOC ROI Media Content House studio and analytics environment">
+          <div class="hero-play" aria-hidden="true">▶</div>
+        </div>
+        <div class="hero-video-meta">
+          <span>Media Content House</span>
+          <strong>INTRO VIDEO PLACEHOLDER</strong>
+          <small>Content strategy, tagged interactions, first-party signals and acquisition intelligence.</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section soft" id="learning">
+  <div class="wrap">
+    <span class="eyebrow">THE LEARNING LOGIC</span>
+    <h2 class="section-title">A Content House is not just a landing page. It is an instrumented learning environment.</h2>
+    <p class="section-lede">The purpose of this pill is to teach students how content becomes observable marketing behaviour. We begin with a Buyer Persona and a product proposition, publish four Marketing Mix content frames, capture acquisition context through UTM parameters and observe consented interactions through first-party identifiers and strategic tags.</p>
+
+    <div class="flowline">
+      <div class="flow-step"><b>1 · Buyer Persona</b><span>Who are we trying to understand?</span></div>
+      <div class="flow-step"><b>2 · Product</b><span>What value proposition are we putting into the market?</span></div>
+      <div class="flow-step"><b>3 · Content House</b><span>Which 4P propositions will the visitor consume?</span></div>
+      <div class="flow-step"><b>4 · UTM</b><span>Where did the visitor come from and at what acquisition cost?</span></div>
+      <div class="flow-step"><b>5 · First-party ID</b><span>Which consented browser is returning?</span></div>
+      <div class="flow-step"><b>6 · Tags & Events</b><span>Which strategic proposition did the visitor engage with?</span></div>
+      <div class="flow-step"><b>7 · Cohorts</b><span>How large and costly is each behavioural audience?</span></div>
+    </div>
+
+    <div class="learning-grid">
+      <article class="learning-card"><div class="num">01</div><h3>Content becomes evidence</h3><p>The four frames — <strong>Product, Price, Place and Promotion</strong> — are not decorative blocks. Each one represents a strategic hypothesis about what may matter to the visitor.</p></article>
+      <article class="learning-card"><div class="num">02</div><h3>Tags make behaviour analysable</h3><p>Every clickable proposition carries a <strong>marketing dimension</strong> and a <strong>strategic keyword</strong>. The click therefore becomes structured behavioural data instead of an anonymous page view.</p></article>
+      <article class="learning-card"><div class="num">03</div><h3>Cohorts connect interest and cost</h3><p>When tags are combined with UTM and acquisition cost, we can group visitors into behavioural cohorts and compare <strong>audience size, recency, frequency and acquisition economics</strong>.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="tabs-shell">
+      <div class="tabs-nav" role="tablist" aria-label="Media Content House learning tabs">
+        <button class="tab-btn active" data-tab="academic" role="tab">Academic Content</button>
+        <button class="tab-btn" data-tab="glossary" role="tab">Glossary</button>
+        <button class="tab-btn" data-tab="resources" role="tab">Downloads & Resources</button>
+        <button class="tab-btn" data-tab="journey" role="tab">What We Are Building</button>
+      </div>
+
+      <div class="tab-panel active" id="tab-academic">
+        <div class="academic-grid">
+          <div class="academic-box">
+            <h3>Why build a Media Content House?</h3>
+            <p>Traditional content publishing tells us what we sent to the market. An instrumented Content House adds a second layer: it tells us which strategic proposition each consented visitor actually consumed.</p>
+            <ul>
+              <li><strong>UTM</strong> preserves acquisition origin and campaign context.</li>
+              <li><strong>First-party identity</strong> lets us recognise a consented returning browser without relying on third-party cookies.</li>
+              <li><strong>Tags</strong> encode the meaning of a click: Product, Price, Place or Promotion plus a strategic keyword.</li>
+              <li><strong>Events</strong> create a row-level behavioural history in the data layer.</li>
+              <li><strong>Cohorts</strong> convert event history into audiences that can later support inbound and nurturing decisions.</li>
+            </ul>
+          </div>
+          <div class="formula">
+            <strong>DOC ROI Acquisition Signal</strong><br><br>
+            <code>Traffic origin</code> + <code>visitor ID</code> + <code>session</code> + <code>content tag</code> + <code>timestamp</code> + <code>cost</code><br><br>
+            ↓<br><br>
+            <code>Behavioural cohort</code><br><br>
+            ↓<br><br>
+            A measurable audience with a known strategic interest and an attributable acquisition cost.
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="tab-glossary">
+        <div class="glossary-grid">
+          <div class="term"><strong>Media Content House</strong><p>A branded content environment designed not only to inform, but also to produce structured behavioural signals.</p></div>
+          <div class="term"><strong>UTM</strong><p>URL parameters that identify traffic source, medium, campaign, creative and keyword context.</p></div>
+          <div class="term"><strong>First-party cookie</strong><p>A cookie created by the domain the visitor is using. In this pill it stores a pseudonymous visitor identifier only after consent.</p></div>
+          <div class="term"><strong>Visitor ID</strong><p>A random pseudonymous identifier used to recognise the same consented browser across visits.</p></div>
+          <div class="term"><strong>Session ID</strong><p>A temporary identifier used to group actions that occur within the same browser session.</p></div>
+          <div class="term"><strong>Strategic tag</strong><p>A structured label attached to content so a click can be interpreted in marketing terms.</p></div>
+          <div class="term"><strong>Marketing dimension</strong><p>The high-level behavioural category used here: Home_Product, Home_Price, Home_Place or Home_Promotion.</p></div>
+          <div class="term"><strong>Event</strong><p>A timestamped interaction sent to the data collector, such as page_view or marketing_frame_click.</p></div>
+          <div class="term"><strong>Cohort</strong><p>A group of visitors who share a defined behavioural characteristic, such as repeated interest in price.</p></div>
+          <div class="term"><strong>POES</strong><p>Paid, Owned, Earned and Shared media — the channel logic used to classify acquisition activity.</p></div>
+          <div class="term"><strong>Cost per visit</strong><p>The attributable acquisition cost associated with bringing one visit into the Content House.</p></div>
+          <div class="term"><strong>Collector endpoint</strong><p>The secure web address that receives browser events and writes them to Google Sheets, Excel or another approved data store.</p></div>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="tab-resources">
+        <div class="resource-grid">
+          <article class="resource-card"><span class="label">DOWNLOAD</span><h3>Media Content House Data Template</h3><p>The spreadsheet template used by this pill to store acquisition and behaviour events and later build cohorts.</p><div class="resource-actions"><a href="https://docroi.marketing/wp-content/uploads/2026/09/DOC_ROI_Media_Content_House_Data_Template_EN_C1.xlsx" target="_blank" rel="noopener">Download Excel Template</a></div></article>
+          <article class="resource-card"><span class="label">DOWNLOAD</span><h3>Tracking Data Contract</h3><p>A compact CSV reference with the exact fields expected by the Event Log.</p><div class="resource-actions"><a href="https://docroi.marketing/wp-content/uploads/2026/09/DOC_ROI_Media_Content_House_Tracking_Contract.csv" target="_blank" rel="noopener">Download CSV Contract</a></div></article>
+          <article class="resource-card"><span class="label">REFERENCE</span><h3>DOC ROI My Cabinet</h3><p>Return to the DOC ROI treatment cabinet to continue the wider learning journey and access the rest of the ecosystem.</p><div class="resource-actions"><a class="alt" href="https://doc-roi-my-cabinet.vercel.app/" target="_blank" rel="noopener">Open My Cabinet</a></div></article>
+          <article class="resource-card"><span class="label">PREVIOUS PILL</span><h3>Buyer Persona Pill</h3><p>Define the customer before designing acquisition content. Use the dedicated DOC ROI Buyer Persona treatment before designing acquisition content.</p><div class="resource-actions"><a class="alt" href="https://doc-roi-treatment-pill-buyer-person.vercel.app/" target="_blank" rel="noopener">Open Buyer Persona Pill</a></div></article>
+          <article class="resource-card"><span class="label">PREVIOUS PILL</span><h3>Product Intelligence Pill</h3><p>Use the dedicated Product Intelligence treatment to clarify the product, proposition and evidence before deciding which content propositions should be tested.</p><div class="resource-actions"><a class="alt" href="https://doc-roi-treatment-pill-product-syst.vercel.app/#builder" target="_blank" rel="noopener">Open Product Intelligence Pill</a></div></article>
+        </div>
+      </div>
+
+      <div class="tab-panel" id="tab-journey">
+        <div class="academic-grid">
+          <div class="academic-box"><h3>The output of this treatment</h3><p>This tool does not directly publish the final landing page. It asks the student for the strategic, creative, privacy and data inputs required to build it correctly. The final output is a <strong>master prompt</strong> that can be pasted into a generative AI to produce the instrumented HTML.</p><ul><li>Header and brand logo</li><li>Hero / HEAD image and proposition</li><li>Four Marketing Mix frames</li><li>GDPR-oriented consent experience</li><li>Consent-gated first-party visitor ID</li><li>UTM and POES capture</li><li>Strategic tags and click events</li><li>Connection to the DOC ROI Event Log</li></ul></div>
+          <div class="academic-box"><h3>Where Growth begins</h3><p>Once this Media Content House exists, the Growth pill can begin to send Paid, Owned, Earned and Shared traffic into it. At that point we can measure not only <em>where visitors came from</em>, but also <em>which strategic proposition they consumed</em> and <em>what it cost to acquire that audience</em>.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section soft" id="builder">
+  <div class="wrap">
+    <span class="eyebrow">PRACTICAL LABORATORY</span>
+    <h2 class="section-title">Build the prompt that will build your tracked landing page.</h2>
+    <p class="section-lede" style="margin-bottom:32px">Complete the treatment tab by tab. Each field includes a discreet information control so students can understand what is being requested without overloading the form.</p>
+
+    <div class="builder-shell">
+      <div class="builder-card">
+        <div class="builder-head"><h2>Media Content House · Prompt Builder</h2><p>Six guided steps. The final prompt will request one complete HTML file with consent-aware first-party tracking and an event contract aligned with the DOC ROI spreadsheet.</p></div>
+        <div class="form-tabs" role="tablist" aria-label="Builder steps">
+          <button class="form-tab active" data-form="strategy">1 · Strategy</button>
+          <button class="form-tab" data-form="experience">2 · Experience</button>
+          <button class="form-tab" data-form="fourp">3 · 4P Tags</button>
+          <button class="form-tab" data-form="privacy">4 · Privacy</button>
+          <button class="form-tab" data-form="data">5 · Data</button>
+          <button class="form-tab" data-form="rules">6 · Output</button>
+        </div>
+
+        <div class="form-page active" id="form-strategy">
+          <h3>Strategic Context</h3><p class="lead">Tell the system what we are trying to market and who we are trying to understand.</p>
+          <div class="grid2">
+            <div class="field"><label>Brand / Project * <button class="info-btn" type="button" data-tip="The brand, company, initiative or academic case that will own the landing page.">i</button></label><input id="brand" placeholder="e.g. Don Espadín"><div class="tip"></div></div>
+            <div class="field"><label>Language Standard <button class="info-btn" type="button" data-tip="The writing standard that the generated landing page must follow.">i</button></label><select id="language"><option selected>English C1</option><option>Spanish C1</option></select><div class="tip"></div></div>
+            <div class="field full"><label>Product / Service * <button class="info-btn" type="button" data-tip="Summarise the product, service, proposition, evidence and key differentiators. This is the raw material for the content house.">i</button></label><textarea id="product" placeholder="Describe the product or service and the value proposition to be tested."></textarea><div class="tip"></div></div>
+            <div class="field full"><label>Buyer Persona * <button class="info-btn" type="button" data-tip="Describe the target customer, motivations, barriers, decision criteria and consumption context. Avoid unnecessary personal data.">i</button></label><textarea id="persona" placeholder="Paste or summarise the Buyer Persona created in the previous DOC ROI pill."></textarea><div class="tip"></div></div>
+            <div class="field full"><label>Business / Campaign Objective * <button class="info-btn" type="button" data-tip="State what the Content House should help us learn or achieve. A good objective connects acquisition with observable behaviour.">i</button></label><textarea id="objective" placeholder="e.g. Identify whether visitors respond more strongly to product, price, availability or promotional propositions."></textarea><div class="tip"></div></div>
+          </div>
+        </div>
+
+        <div class="form-page" id="form-experience">
+          <h3>Visual Experience</h3><p class="lead">Define the fixed landing-page template: logo, HEAD image, proposition, CTA and brand colours.</p>
+          <div class="grid2">
+            <div class="field full"><label>Logo URL / Instruction * <button class="info-btn" type="button" data-tip="Provide a public logo URL or a precise instruction such as 'use the uploaded DOC ROI logo'. The generated HTML must include it in the header.">i</button></label><input id="logo" value="https://docroi.marketing/wp-content/uploads/2026/05/Logo_Negro_DoC_ROI.jpg"><div class="tip"></div></div>
+            <div class="field full"><label>HEAD / Hero Image URL or Description * <button class="info-btn" type="button" data-tip="Provide either a public image URL or a precise visual brief. The final HTML should use the image as the dominant hero visual.">i</button></label><input id="heroImage" placeholder="Image URL or visual brief for the HEAD"><div class="tip"></div></div>
+            <div class="field"><label>Hero Headline * <button class="info-btn" type="button" data-tip="A concise proposition that reflects the product and the Buyer Persona, not a generic marketing slogan.">i</button></label><input id="heroHeadline" placeholder="Main proposition"><div class="tip"></div></div>
+            <div class="field"><label>Primary CTA * <button class="info-btn" type="button" data-tip="The main action the visitor should take. The CTA click will also become a measurable event after consent.">i</button></label><input id="heroCta" placeholder="e.g. Discover the ritual"><div class="tip"></div></div>
+            <div class="field full"><label>Supporting Copy <button class="info-btn" type="button" data-tip="Use one or two sentences to explain why the visitor should continue into the four content frames.">i</button></label><textarea id="heroCopy" placeholder="Short supporting copy for the hero."></textarea><div class="tip"></div></div>
+            <div class="field"><label>Primary Colour <button class="info-btn" type="button" data-tip="Main interface colour in hex format.">i</button></label><input id="primaryColor" value="#003B5C"><div class="tip"></div></div>
+            <div class="field"><label>Accent Colour <button class="info-btn" type="button" data-tip="Secondary colour used for emphasis, buttons or interactive states.">i</button></label><input id="accentColor" value="#0A6FAE"><div class="tip"></div></div>
+          </div>
+        </div>
+
+        <div class="form-page" id="form-fourp">
+          <h3>Four Strategic Content Frames</h3><p class="lead">Each frame is both content and a measurable marketing tag. On desktop they must appear as one row with four columns; on mobile they must stack vertically.</p>
+          <div class="fourp">
+            <div class="fourp-card"><h4>Product <span class="mini-tag">Home_Product</span></h4><div class="stack">
+              <div class="field"><label>Frame Title <button class="info-btn" type="button" data-tip="The visible title of the Product content proposition.">i</button></label><input id="f1title" value="Product · Craft & Origin"><div class="tip"></div></div>
+              <div class="field"><label>Strategic Keyword * <button class="info-btn" type="button" data-tip="A machine-readable label describing the hypothesis behind this content. Keep it short, stable and meaningful.">i</button></label><input id="f1keyword" value="craft_origin_quality"><div class="tip"></div></div>
+              <div class="field"><label>Content <button class="info-btn" type="button" data-tip="Explain what the Product frame should communicate to the visitor.">i</button></label><textarea id="f1copy">Explore provenance, craftsmanship, ingredients, design and the ritual behind the product.</textarea><div class="tip"></div></div>
+              <div class="field"><label>Destination URL <button class="info-btn" type="button" data-tip="Where the visitor should go when the frame is clicked. It can be a page, anchor or deeper content asset.">i</button></label><input id="f1url" value="#product"><div class="tip"></div></div>
+            </div></div>
+            <div class="fourp-card"><h4>Price <span class="mini-tag">Home_Price</span></h4><div class="stack">
+              <div class="field"><label>Frame Title <button class="info-btn" type="button" data-tip="The visible title of the Price content proposition.">i</button></label><input id="f2title" value="Price · Value & Choice"><div class="tip"></div></div>
+              <div class="field"><label>Strategic Keyword * <button class="info-btn" type="button" data-tip="Use a stable keyword that captures the price/value hypothesis being tested.">i</button></label><input id="f2keyword" value="premium_value_threshold"><div class="tip"></div></div>
+              <div class="field"><label>Content <button class="info-btn" type="button" data-tip="Explain price through value, proof, packaging, service or choice — not just discounting.">i</button></label><textarea id="f2copy">Explain what supports the price: quality, scarcity, experience, gifting value or bundle options.</textarea><div class="tip"></div></div>
+              <div class="field"><label>Destination URL <button class="info-btn" type="button" data-tip="Target page or anchor for the Price proposition.">i</button></label><input id="f2url" value="#price"><div class="tip"></div></div>
+            </div></div>
+            <div class="fourp-card"><h4>Place <span class="mini-tag">Home_Place</span></h4><div class="stack">
+              <div class="field"><label>Frame Title <button class="info-btn" type="button" data-tip="The visible title for availability, distribution or access.">i</button></label><input id="f3title" value="Place · Where to Find It"><div class="tip"></div></div>
+              <div class="field"><label>Strategic Keyword * <button class="info-btn" type="button" data-tip="Use a keyword that represents availability, convenience, channel or distribution interest.">i</button></label><input id="f3keyword" value="where_to_buy_availability"><div class="tip"></div></div>
+              <div class="field"><label>Content <button class="info-btn" type="button" data-tip="Describe where, when or how the customer can access the product.">i</button></label><textarea id="f3copy">Show selected retail, restaurants, availability, access and the most convenient way to obtain the product.</textarea><div class="tip"></div></div>
+              <div class="field"><label>Destination URL <button class="info-btn" type="button" data-tip="Target page or anchor for the Place proposition.">i</button></label><input id="f3url" value="#place"><div class="tip"></div></div>
+            </div></div>
+            <div class="fourp-card"><h4>Promotion <span class="mini-tag">Home_Promotion</span></h4><div class="stack">
+              <div class="field"><label>Frame Title <button class="info-btn" type="button" data-tip="The visible title for campaigns, experiences, referral, community or social proof.">i</button></label><input id="f4title" value="Promotion · Experiences & Community"><div class="tip"></div></div>
+              <div class="field"><label>Strategic Keyword * <button class="info-btn" type="button" data-tip="Use a stable keyword that describes the promotional hypothesis being tested.">i</button></label><input id="f4keyword" value="tasting_referral_social_proof"><div class="tip"></div></div>
+              <div class="field"><label>Content <button class="info-btn" type="button" data-tip="Define the experience, campaign, referral or proof that should motivate further interaction.">i</button></label><textarea id="f4copy">Present tastings, referrals, community experiences, recommendations and social proof.</textarea><div class="tip"></div></div>
+              <div class="field"><label>Destination URL <button class="info-btn" type="button" data-tip="Target page or anchor for the Promotion proposition.">i</button></label><input id="f4url" value="#promotion"><div class="tip"></div></div>
+            </div></div>
+          </div>
+        </div>
+
+        <div class="form-page" id="form-privacy">
+          <h3>GDPR-oriented Consent & First-party Identity</h3><p class="lead">The generated landing page must not create the analytics/personalisation identifier or transmit behavioural events until the visitor actively accepts.</p>
+          <div class="callout warn"><strong>Educational and technical guidance, not legal certification.</strong> A first-party cookie used for analytics or commercial personalisation may require consent and appropriate transparency. Production deployment should be reviewed against the organisation's legal basis, privacy notice, retention policy and processor arrangements.</div>
+          <div class="grid2" style="margin-top:16px">
+            <div class="field"><label>Privacy Contact Email * <button class="info-btn" type="button" data-tip="The contact address that visitors can use for privacy questions and data rights.">i</button></label><input id="privacyEmail" placeholder="privacy@yourdomain.com"><div class="tip"></div></div>
+            <div class="field"><label>Privacy Policy URL <button class="info-btn" type="button" data-tip="Public privacy-policy URL. The consent banner should include a route to this information.">i</button></label><input id="privacyUrl" value="https://docroi.marketing/aviso-legal/"><div class="tip"></div></div>
+            <div class="field"><label>Visitor Cookie Name <button class="info-btn" type="button" data-tip="The cookie will store only a pseudonymous visitor identifier, not personal details.">i</button></label><input id="cookieName" value="docroi_vid"><div class="tip"></div></div>
+            <div class="field"><label>Cookie Lifetime (days) <button class="info-btn" type="button" data-tip="How long the consented visitor identifier should persist. Choose the shortest period that supports the learning objective.">i</button></label><input id="cookieDays" type="number" min="1" max="730" value="180"><div class="tip"></div></div>
+            <div class="field full"><label>Consent Banner Copy <button class="info-btn" type="button" data-tip="The generated page will use this as the basis for its visible consent notice. Keep the purpose specific and understandable.">i</button></label><textarea id="consentCopy">We use our own first-party cookie, with your consent, to remember your choices and understand how you interact with our content. Our purpose is to measure behaviour and personalise the commercial experience and the offers we present to you. We do not sell cookie data or share it with third parties for their own marketing purposes. Selected service providers may process data only on our instructions to operate this measurement system. You can reject or withdraw consent at any time. For privacy questions, contact {{EMAIL}}.</textarea><div class="tip"></div><div class="hint">The prompt will require Accept, Reject and Manage / Privacy controls.</div></div>
+          </div>
+        </div>
+
+        <div class="form-page" id="form-data">
+          <h3>Data Destination & Event Collection</h3><p class="lead">This step answers the question that usually causes confusion: <strong>where will the event go, and how will it reach the spreadsheet?</strong></p>
+          <div class="callout"><strong>Simple rule.</strong> The landing page should not log into a private spreadsheet directly. It sends an event to a controlled collector. The collector then writes the row into Google Sheets or Excel.</div>
+          <div class="grid2" style="margin-top:16px">
+            <div class="field"><label>Where will the data be stored? <button class="info-btn" type="button" data-tip="Choose the final data store. For this pill, Google Sheets is the simplest classroom option.">i</button></label><select id="storage"><option selected>Google Sheets</option><option>Microsoft Excel / OneDrive</option><option>Classroom simulation only</option></select><div class="tip"></div></div>
+            <div class="field"><label>How will events reach it? <button class="info-btn" type="button" data-tip="This is the integration layer. Google Apps Script is the simplest route to Google Sheets; n8n is ideal when you want automation and expansion later.">i</button></label><select id="integration"><option selected>Google Apps Script Web App</option><option>n8n Webhook</option><option>Microsoft Power Automate / Graph</option><option>Other secure HTTPS endpoint</option><option>Classroom simulation only</option></select><div class="tip"></div></div>
+            <div class="field full"><label>Google Sheet / Excel / Drive URL * <button class="info-btn" type="button" data-tip="This is a reference to the destination file. It is not the browser write endpoint and it must not contain credentials.">i</button></label><input id="sheetUrl" placeholder="https://docs.google.com/spreadsheets/d/... or OneDrive / Drive link"><div class="tip"></div></div>
+            <div class="field"><label>Worksheet / Table Name <button class="info-btn" type="button" data-tip="The table or worksheet where one row per event will be stored.">i</button></label><input id="sheetTab" value="Event_Log"><div class="tip"></div></div>
+            <div class="field"><label>POES Rule <button class="info-btn" type="button" data-tip="POES classifies acquisition as Paid, Owned, Earned or Shared. The recommended rule is to read it from the landing URL.">i</button></label><select id="poes"><option>Paid</option><option>Owned</option><option>Earned</option><option>Shared</option><option selected>Read from URL parameter</option></select><div class="tip"></div></div>
+            <div class="field full"><label>Collector / Webhook Endpoint URL <button class="info-btn" type="button" data-tip="The secure endpoint that receives events from the browser. For Apps Script, paste the deployed /exec URL. For n8n, paste the production webhook URL.">i</button></label><input id="endpoint" placeholder="https://.../exec or https://.../webhook/..."><div class="tip"></div><div class="hint">If you do not have it yet, the generated prompt will leave a clearly marked COLLECTOR_ENDPOINT placeholder.</div></div>
+            <div class="field full"><label>Cost per Visit Rule <button class="info-btn" type="button" data-tip="This value can be passed in the URL as cpv so each visit carries acquisition economics into the event log.">i</button></label><input id="cpv" value="Read from URL parameter cpv; default 0"><div class="tip"></div></div>
+          </div>
+          <div class="connection-guide" id="connectionGuide"><strong>Recommended for this pill: Google Sheets + Google Apps Script Web App.</strong><p>The landing page sends a POST request to the deployed Apps Script URL. The script appends the event to Event_Log. No Google password or API secret is placed in the HTML.</p></div>
+          <div style="margin-top:18px"><div class="eyebrow" style="font-size:10px">EVENT LOG CONTRACT</div><div class="schema" id="schemaBox"></div></div>
+        </div>
+
+        <div class="form-page" id="form-rules">
+          <h3>Generation Rules</h3><p class="lead">Set the technical quality bar for the AI that will create the final landing page.</p>
+          <div class="grid2">
+            <div class="field"><label>Page Delivery <button class="info-btn" type="button" data-tip="A self-contained HTML file is easier for students to copy, inspect, deploy and reproduce.">i</button></label><select id="delivery"><option selected>One self-contained HTML file</option><option>HTML + separate CSS / JS files</option></select><div class="tip"></div></div>
+            <div class="field"><label>Responsive Behaviour <button class="info-btn" type="button" data-tip="The four content frames should be four columns on desktop and a vertical stack on mobile.">i</button></label><select id="responsive"><option selected>Mobile-first; 4 columns desktop, stacked mobile</option><option>Desktop-first</option></select><div class="tip"></div></div>
+            <div class="field"><label>Tracking Mode <button class="info-btn" type="button" data-tip="Consent-gated tracking means no analytics/personalisation visitor ID and no behavioural transmission before Accept.">i</button></label><select id="trackingMode"><option selected>Consent-gated; send events only after Accept</option><option>Classroom simulation; log locally only</option></select><div class="tip"></div></div>
+            <div class="field"><label>AI Output Format <button class="info-btn" type="button" data-tip="The recommended format returns the complete HTML first and then a short implementation note for the student.">i</button></label><select id="outputFormat"><option selected>Render an interactive HTML preview in the chat, provide the complete HTML, then a short implementation note</option><option>Return complete HTML first, then a short implementation note</option><option>Return complete HTML only</option></select><div class="tip"></div></div>
+          </div>
+        </div>
+
+        <div class="builder-footer">
+          <button class="btn primary" id="generateBtn">Generate Prompt</button>
+          <button class="btn secondary" id="exampleBtn">Show Example</button>
+          <button class="btn ghost" id="clearExampleBtn">Clear Example</button>
+          <button class="btn danger" id="clearFormBtn">Reset Form</button>
+        </div>
+      </div>
+
+      <aside class="builder-card prompt-card">
+        <div class="builder-head"><h2>Generated Master Prompt</h2><p>Copy this into a generative AI to create the final Media Content House landing page.</p></div>
+        <div class="prompt-actions">
+          <button class="btn primary" id="copyBtn">Copy Prompt</button>
+          <button class="btn ghost" id="saveBtn">Save Prompt</button>
+          <button class="btn ghost" id="exportBtn">Export Prompt</button>
+          <button class="btn ghost" id="sendBtn">Send Prompt</button>
+          <button class="btn danger" id="clearPromptBtn">Clear Prompt</button>
+          <span class="saved-note" id="savedNote"></span>
+        </div>
+        <textarea class="promptbox" id="promptOutput" spellcheck="false" readonly>Complete the treatment and select “Generate Prompt”.</textarea>
+        <div class="score-row"><div class="score-top"><span>Prompt readiness</span><strong id="scoreBadge">0%</strong></div><div class="meter"><span id="meterBar"></span></div><div class="checks" id="checks"></div></div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="diiip">
+  <div class="diiip-inner">
+    <div class="diiip-head"><span>METHODOLOGY AT THE END OF THE JOURNEY</span><h2>DIIIP explains why this connection creates value</h2><p>The Content House is not valuable because a page has been published. Value appears when raw acquisition and interaction data are transformed into visible decisions about audiences, content and personalisation.</p></div>
+    <div class="diiip-list">
+      <div class="d-row"><div class="d-letter">D</div><div><strong>Data</strong><p>UTM parameters, consented visitor ID, session ID, page views and clicks on Product, Price, Place and Promotion content.</p></div></div>
+      <div class="d-row"><div class="d-letter">I</div><div><strong>Information</strong><p>Structured event rows containing acquisition source, campaign, timestamp, strategic keyword, marketing dimension and cost per visit.</p></div></div>
+      <div class="d-row"><div class="d-letter">I</div><div><strong>Intelligence</strong><p>The event history is organised into behavioural patterns: which propositions attract attention, which visitors return and which channels produce those behaviours.</p></div></div>
+      <div class="d-row"><div class="d-letter">I</div><div><strong>Insights</strong><p>Audience size by cohort, recency, frequency, acquisition cost and the relative strength of Product, Price, Place and Promotion signals.</p></div></div>
+      <div class="d-row"><div class="d-letter">P</div><div><strong>Personalization Actions</strong><p>Use those insights to decide what content, landing experience, inbound sequence or nurturing proposition should come next.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="kai-roi" class="kai">
+  <div class="kai-inner">
+    <div><span class="kai-badge">KAI·ROI EQUATION · CUSTOMER EQUITY</span><h2>This connection is a gateway to the KAI·ROI Equation</h2><p>The Media Content House does not end with tracking. It shows how acquisition data can become information, intelligence, behavioural audiences, Customer Equity inputs and decisions that can be defended with economic criteria.</p><p class="small">The KAI·ROI Equation resource provides an executive introduction to the relationship between ROI, data monetisation, Customer Equity and strategic decision-making across the DOC ROI ecosystem.</p></div>
+    <div class="kai-card"><span class="badge">EXECUTIVE RESOURCE</span><h3>The KAI·ROI Equation Book</h3><p>A concise guide to understanding how data, ROI, Customer Equity and strategic decisions can be connected through the KAI·ROI framework.</p><div class="kai-list"><strong>Inside the document:</strong><ul><li>What the KAI·ROI Equation is</li><li>Why Customer Equity matters</li><li>How ROI becomes a decision system</li><li>Why data should be monetised with purpose</li></ul></div><a href="https://docroi.marketing/kai-equation/" target="_blank" rel="noopener" class="kai-btn">Access the KAI·ROI Equation →</a></div>
+  </div>
+</section>
+
+<footer class="final-footer">
+  <div class="inner">
+    <a href="https://doc-roi-my-cabinet.vercel.app/" target="_blank" rel="noopener" class="footer-logo"><img src="https://docroi.marketing/wp-content/uploads/2026/05/Logo_Negro_DoC_ROI.jpg" alt="DOC ROI"></a>
+    <div class="consult"><a href="https://doc-roi-executive.vercel.app/" target="_blank" rel="noopener">Consult with DOC ROI →</a></div>
+    <div class="footer-links"><a href="https://docroi.marketing/aviso-legal/" target="_blank" rel="noopener">Privacy Policy</a><span style="opacity:.4">|</span><a href="https://docroi.marketing/aviso-legal/" target="_blank" rel="noopener">Legal Notice</a><span style="opacity:.4">|</span><a href="https://docroi.marketing/aviso-legal/" target="_blank" rel="noopener">Intellectual Property</a></div>
+    <div class="footer-copy"><span>The intellectual property of the DOC ROI ecosystem belongs to</span><a href="https://docroi.marketing/ph-d-jorge-lucio/" target="_blank" rel="noopener noreferrer"><span>Ph. D. Jorge Lucio Sánchez Galán.</span></a></div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const FIELDS=['event_date','cookie_id','session_id','utm_source','utm_medium','utm_campaign','utm_content','utm_term','poes_type','cost_per_visit','event_type','marketing_dimension','strategic_keyword','lead_score','notes'];
+const $=id=>document.getElementById(id);const val=id=>($(id)?.value||'').trim();const q=s=>(s||'').replace(/```/g,'` ` `');
+
+// Learning tabs
+document.querySelectorAll('.tab-btn').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));btn.classList.add('active');$('tab-'+btn.dataset.tab).classList.add('active')}));
+// Builder tabs
+document.querySelectorAll('.form-tab').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.form-tab').forEach(b=>b.classList.remove('active'));document.querySelectorAll('.form-page').forEach(p=>p.classList.remove('active'));btn.classList.add('active');$('form-'+btn.dataset.form).classList.add('active')}));
+// Inline info tooltips
+document.querySelectorAll('.info-btn').forEach(btn=>{const tip=btn.closest('.field').querySelector('.tip');tip.textContent=btn.dataset.tip;btn.addEventListener('click',e=>{e.stopPropagation();document.querySelectorAll('.tip.show').forEach(t=>{if(t!==tip)t.classList.remove('show')});tip.classList.toggle('show');btn.classList.toggle('active',tip.classList.contains('show'))})});
+document.addEventListener('click',()=>{document.querySelectorAll('.tip.show').forEach(t=>t.classList.remove('show'));document.querySelectorAll('.info-btn.active').forEach(b=>b.classList.remove('active'))});
+
+FIELDS.forEach(f=>{const c=document.createElement('code');c.textContent=f;$('schemaBox').appendChild(c)});
+
+function toast(msg){$('toast').textContent=msg;$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),1800)}
+
+function updateConnectionGuide(){
+  const s=val('storage'),i=val('integration');let title='',body='';
+  if(s==='Google Sheets'&&i==='Google Apps Script Web App'){title='Recommended for this pill: Google Sheets + Google Apps Script Web App.';body='The landing page sends a POST request to the deployed Apps Script URL. The script appends the event to Event_Log. No Google password or API secret is placed in the HTML.'}
+  else if(s==='Google Sheets'&&i==='n8n Webhook'){title='Best when you want the next automation layer: Google Sheets + n8n.';body='The landing page sends the event to an n8n production webhook. n8n validates the payload and appends it to Google Sheets. This is the most expandable path for later inbound and nurturing workflows.'}
+  else if(s==='Microsoft Excel / OneDrive'&&(i==='Microsoft Power Automate / Graph'||i==='n8n Webhook')){title='Recommended for Microsoft data storage.';body='Use Power Automate / Graph or n8n as the controlled write layer. The browser should never hold Microsoft credentials or write directly to a private workbook.'}
+  else if(s==='Classroom simulation only'||i==='Classroom simulation only'){title='Classroom simulation mode.';body='No event leaves the browser. The generated page should display payloads in a local debug console so students can understand the data contract before connecting a real collector.'}
+  else {title='Advanced integration selected.';body='Use a secure HTTPS collector that validates the payload and writes to the approved data store. Keep all credentials and secrets on the server side, never in the HTML.'}
+  $('connectionGuide').innerHTML=`<strong>${title}</strong><p>${body}</p>`;
+}
+$('storage').addEventListener('change',updateConnectionGuide);$('integration').addEventListener('change',updateConnectionGuide);updateConnectionGuide();
+
+function buildPrompt(){
+  const endpoint=val('endpoint')||'[PASTE_COLLECTOR_ENDPOINT_HERE]';
+  const sheetUrl=val('sheetUrl')||'[PASTE_GOOGLE_SHEET_OR_EXCEL_URL_HERE]';
+  const email=val('privacyEmail')||'[PRIVACY_EMAIL]';
+  const consent=val('consentCopy').replace('{{EMAIL}}',email);
+  const integration=val('integration');
+  let postRule='';
+  if(integration==='Google Apps Script Web App') postRule='Use fetch() with method POST. For Apps Script, prefer a simple text/plain;charset=utf-8 body containing JSON.stringify(eventPayload) so the classroom implementation avoids an unnecessary CORS preflight. Handle failures without blocking navigation.';
+  else if(integration==='Classroom simulation only') postRule='Do not transmit data externally. Simulate sendEvent() by writing each payload to an on-page event console and an in-memory array.';
+  else postRule='Use fetch() POST to the configured collector endpoint. Keep the endpoint in one clearly named configuration constant and handle failures without blocking the visitor experience.';
+
+  const p=`ROLE\nAct as a senior front-end developer, digital analytics architect, CRO specialist, privacy-aware marketing technologist, product prototyping agent and university instructor. Your responsibility is to finish the implementation, not merely advise the user. Build a production-quality educational landing page for the DOC ROI · Media Content House pill.\n\nEXECUTION BEHAVIOUR\nComplete the task in the current response. Do not stop after describing the solution, do not ask the user what they want you to do next, and do not wait for a second instruction to render the result. If a non-critical value is missing, use a clearly labelled safe placeholder and still produce a functional page.\n\nPURPOSE\nThe page must operate as both a persuasive content asset and a measurable acquisition touchpoint. It must translate Buyer Persona and product knowledge into four trackable Marketing Mix propositions, capture acquisition origin through UTM parameters, create a consented pseudonymous first-party visitor identity and send structured behavioural events to the DOC ROI Event Log.\n\nMANDATORY USER-FACING RESULT\n1. Generate the complete working page in ${q(val('delivery'))}.\n2. Immediately render or open the generated HTML as an interactive preview / HTML viewer / artifact inside the current chat when the host interface supports that capability. The user must be able to see the page, not only read its source code.\n3. In the same response, provide the complete HTML source and, when file creation is supported, attach or create a ready-to-save .html file.\n4. Then provide only a short implementation note explaining where the collector endpoint and spreadsheet destination are configured.\n5. Do not end with “What would you like me to do next?”, “I can generate it if you want”, or any equivalent hand-off. The deliverable is the page itself plus its visible preview.\n6. If the host cannot render an interactive preview, state that limitation in one sentence, still provide the complete HTML, and create/provide a downloadable .html file whenever the environment permits.\n\nRequested output preference: ${q(val('outputFormat'))}. Do not return pseudo-code. Do not omit JavaScript. The HTML must be directly usable after the user replaces any clearly marked endpoint placeholder.\n\nLANGUAGE\nAll visible copy, accessibility text, instructional comments and implementation notes must be written in ${q(val('language'))}.\n\n1. STRATEGIC INPUTS\nBrand / project: ${q(val('brand'))}\nProduct / service: ${q(val('product'))}\nBuyer Persona: ${q(val('persona'))}\nBusiness / campaign objective: ${q(val('objective'))}\n\n2. FIXED PAGE TEMPLATE\nBuild the landing page in this exact order:\nA. HEADER — include the brand logo. Logo source/instruction: ${q(val('logo'))}.\nB. HERO / HEAD — use a strong responsive visual. Image source/instruction: ${q(val('heroImage'))}. Headline: “${q(val('heroHeadline'))}”. Supporting copy: “${q(val('heroCopy'))}”. Primary CTA: “${q(val('heroCta'))}”.\nC. FOUR MARKETING MIX FRAMES — exactly four equal columns on desktop and a vertical stack on mobile. Each frame is both content and a trackable interaction.\nD. FOOTER — brand identity, privacy link, privacy contact and a neutral copyright line.\nE. CONSENT BANNER — fixed, accessible and responsive; shown before analytics or personalisation tracking begins.\nVisual direction: primary colour ${q(val('primaryColor'))}; accent colour ${q(val('accentColor'))}; ${q(val('responsive'))}. Use semantic HTML, accessible contrast, clear focus states and polished spacing.\n\n3. FOUR TRACKABLE CONTENT FRAMES\nEach interactive frame MUST include data-marketing-dimension, data-strategic-keyword and data-destination-url attributes. Use these exact dimensions:\n\nPRODUCT\nmarketing_dimension: Home_Product\nvisible title: ${q(val('f1title'))}\nstrategic_keyword: ${q(val('f1keyword'))}\ncontent: ${q(val('f1copy'))}\ndestination_url: ${q(val('f1url'))}\n\nPRICE\nmarketing_dimension: Home_Price\nvisible title: ${q(val('f2title'))}\nstrategic_keyword: ${q(val('f2keyword'))}\ncontent: ${q(val('f2copy'))}\ndestination_url: ${q(val('f2url'))}\n\nPLACE / DISTRIBUTION\nmarketing_dimension: Home_Place\nvisible title: ${q(val('f3title'))}\nstrategic_keyword: ${q(val('f3keyword'))}\ncontent: ${q(val('f3copy'))}\ndestination_url: ${q(val('f3url'))}\n\nPROMOTION\nmarketing_dimension: Home_Promotion\nvisible title: ${q(val('f4title'))}\nstrategic_keyword: ${q(val('f4keyword'))}\ncontent: ${q(val('f4copy'))}\ndestination_url: ${q(val('f4url'))}\n\nWhen a visitor clicks one of these frames after consent, send event_type=marketing_frame_click with the corresponding marketing_dimension and strategic_keyword. Preserve normal navigation after attempting the event call.\n\n4. UTM, POES AND ACQUISITION COST\nOn page load parse: utm_source, utm_medium, utm_campaign, utm_content, utm_term, poes and cpv.\nPOES rule: ${q(val('poes'))}.\nCost-per-visit rule: ${q(val('cpv'))}.\nAfter consent, preserve first-touch acquisition values for returning visits using first-party storage. Do not use browser fingerprinting. Do not infer sensitive attributes.\n\n5. GDPR-ORIENTED CONSENT AND FIRST-PARTY IDENTITY\nVisitor cookie name: ${q(val('cookieName'))}.\nCookie lifetime: ${q(val('cookieDays'))} days.\nThe analytics/personalisation identifier MUST NOT be created before explicit consent. After Accept, generate a pseudonymous random UUID with crypto.randomUUID() when available and a safe fallback otherwise. Store only that ID in the first-party cookie using Path=/, SameSite=Lax and Max-Age based on the configured lifetime. Add Secure automatically when served over HTTPS. Do not store personal data in the cookie.\nCreate a separate session_id after consent and keep it in sessionStorage.\nDo not implement canvas, font, WebGL, audio or other browser fingerprinting.\n\nCONSENT EXPERIENCE\nProvide three clear controls: Accept, Reject and Manage / Privacy. Accept and Reject must be equally accessible. Reject must leave analytics/personalisation tracking disabled. Include a persistent Privacy Choices control so the visitor can revisit the decision.\nUse or faithfully adapt this consent copy:\n“${q(consent)}”\nPrivacy policy: ${q(val('privacyUrl'))}\nPrivacy contact: ${q(email)}\nTreat this wording as a draft for legal review, not as proof of compliance.\n\n6. DATA DESTINATION AND COLLECTOR\nFinal data store: ${q(val('storage'))}\nSpreadsheet / file reference: ${q(sheetUrl)}\nTarget worksheet/table: ${q(val('sheetTab'))}\nIntegration method: ${q(integration)}\nCollector endpoint: ${q(endpoint)}\n${postRule}\nThe browser must never contain Google/Microsoft credentials, API secrets or private tokens. The page must not attempt to log into or write directly to a private spreadsheet from front-end JavaScript. All real writes go through the configured collector.\n\n7. DOC ROI EVENT CONTRACT — EXACT KEYS\nFor each event build a payload with these exact keys:\n${FIELDS.join(', ')}\n\nRequired behaviour:\n- event_date: new Date().toISOString()\n- cookie_id: consented pseudonymous visitor identifier\n- session_id: current consented session identifier\n- utm_source, utm_medium, utm_campaign, utm_content, utm_term: current/first-touch attribution values or empty strings\n- poes_type: derived from poes URL parameter or configured rule\n- cost_per_visit: numeric cpv value when available; otherwise 0\n- event_type: at minimum page_view, hero_cta_click, marketing_frame_click and consent_granted\n- marketing_dimension: Home_Product, Home_Price, Home_Place or Home_Promotion for 4P interactions; otherwise empty string\n- strategic_keyword: exact keyword attached to the clicked frame; otherwise empty string\n- lead_score: 0 at this Growth stage unless an explicit scoring rule is supplied; do not invent a score\n- notes: short technical context only; never sensitive personal data\nDo not send spreadsheet-side helper/formula columns.\n\n8. JAVASCRIPT ARCHITECTURE\nUse one CONFIG object near the top for cookie name, cookie lifetime, collector endpoint, spreadsheet reference and debug mode. Organise code into small functions equivalent to:\ngetQueryAttribution(), getConsentState(), setConsentState(), createVisitorId(), getOrCreateVisitorIdAfterConsent(), getOrCreateSessionIdAfterConsent(), persistFirstTouchAttributionAfterConsent(), buildEventPayload(), sendEvent(), bindTrackedElements(), initConsentBanner(), initTracking().\n\n9. BEHAVIOURAL EVENTS\nAfter consent:\n- send page_view;\n- send hero_cta_click for the primary CTA;\n- send marketing_frame_click for the four frames;\n- if consent_granted is recorded, send it only after the visitor actively clicks Accept;\n- when ?debug=1 is present, show an optional local debug panel with the payload for classroom inspection.\nIf transmission fails, fail gracefully and never block content or navigation.\n\n10. ACCESSIBILITY, SECURITY AND TEACHING QUALITY\n- Semantic HTML, labels, alt text and keyboard-accessible controls.\n- No unsafe handling of untrusted dynamic content.\n- No unnecessary trackers, ad pixels or fingerprinting libraries.\n- No real credentials in the HTML.\n- Add clear student-facing comments around consent, cookie creation, UTM parsing, tags and event posting.\n- Keep the design professional, realistic and suitable for deployment as a university classroom demonstration.\n\n11. FINAL SELF-CHECK\nBefore returning the answer verify:\n[ ] branded header with logo\n[ ] hero image / HEAD\n[ ] exactly four Marketing Mix frames\n[ ] Home_Product, Home_Price, Home_Place, Home_Promotion\n[ ] strategic keyword on every frame\n[ ] consent banner with Accept, Reject, Manage / Privacy\n[ ] no analytics/personalisation cookie before consent\n[ ] pseudonymous first-party visitor ID after consent\n[ ] session ID after consent\n[ ] UTM + POES + cpv capture\n[ ] event payload matching the DOC ROI fields\n[ ] collector endpoint configuration\n[ ] spreadsheet destination reference\n[ ] graceful error handling\n[ ] no browser fingerprinting\n[ ] no embedded credentials\n[ ] mobile-first responsive layout\n\nNow generate the complete landing page, render/open its interactive preview in this chat, and provide the finished HTML file in the same response. Do not ask for another instruction.`;
+  $('promptOutput').value=p;updateScore();toast('Master prompt generated');
+}
+
+function updateScore(){
+  const req=[['Brand / project',!!val('brand')],['Product / service',!!val('product')],['Buyer Persona',!!val('persona')],['Business objective',!!val('objective')],['Logo',!!val('logo')],['HEAD image',!!val('heroImage')],['Hero proposition',!!val('heroHeadline')],['4 strategic tags',['f1keyword','f2keyword','f3keyword','f4keyword'].every(id=>!!val(id))],['Privacy contact',!!val('privacyEmail')],['Data destination',!!val('sheetUrl')||val('storage')==='Classroom simulation only'],['Collector',!!val('endpoint')||val('integration')==='Classroom simulation only']];
+  const ok=req.filter(x=>x[1]).length,score=Math.round(ok/req.length*100);$('scoreBadge').textContent=score+'%';$('meterBar').style.width=score+'%';$('checks').innerHTML='';req.forEach(([name,status])=>{const d=document.createElement('div');d.className='check '+(status?'ok':'');d.innerHTML=`<i>${status?'✓':'·'}</i><span>${name}</span>`;$('checks').appendChild(d)});
+}
+
+function loadExample(){
+  $('brand').value='Don Espadín';$('product').value='Premium mezcal positioned around origin, ritual, craftsmanship and social distinction. Matte black bottle, silver details and a premium gifting / after-dinner occasion.';$('persona').value='Premium urban consumer seeking provenance, authenticity, design and a distinctive social ritual. The buyer values quality proof and access but may need a clear premium-price justification.';$('objective').value='Identify whether acquired visitors respond most strongly to Product, Price, Place or Promotion propositions so the next inbound experience can be personalised using observed content behaviour.';$('heroImage').value='A cinematic premium still-life of a matte black Don Espadín mezcal bottle on a refined after-dinner table, dark background, subtle silver highlights, elegant mezcal glassware, high-end editorial photography.';$('heroHeadline').value='The ritual begins before the first sip.';$('heroCopy').value='Discover the story, value, availability and experiences that shape Don Espadín — and choose what matters most to you.';$('heroCta').value='Discover the ritual';$('privacyEmail').value='privacy@example.com';$('sheetUrl').value='https://docs.google.com/spreadsheets/d/EXAMPLE_SHEET_ID/edit';$('endpoint').value='https://script.google.com/macros/s/EXAMPLE_DEPLOYMENT_ID/exec';$('storage').value='Google Sheets';$('integration').value='Google Apps Script Web App';updateConnectionGuide();updateScore();toast('Don Espadín example loaded');
+}
+function clearExample(){['brand','product','persona','objective','heroImage','heroHeadline','heroCopy','heroCta','privacyEmail','sheetUrl','endpoint'].forEach(id=>$(id).value='');updateScore();toast('Example fields cleared')}
+function resetForm(){if(!confirm('Reset the complete treatment form?'))return;location.reload()}
+async function copyPrompt(){if(!$('promptOutput').value.startsWith('ROLE'))buildPrompt();try{await navigator.clipboard.writeText($('promptOutput').value);toast('Prompt copied')}catch(e){$('promptOutput').select();document.execCommand('copy');toast('Prompt copied')}}
+function savePrompt(){if(!$('promptOutput').value.startsWith('ROLE'))buildPrompt();localStorage.setItem('docroi_media_content_house_prompt',$('promptOutput').value);$('savedNote').textContent='Saved locally';toast('Prompt saved in this browser')}
+function exportPrompt(){if(!$('promptOutput').value.startsWith('ROLE'))buildPrompt();const blob=new Blob([$('promptOutput').value],{type:'text/plain;charset=utf-8'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='DOC_ROI_Media_Content_House_Master_Prompt_EN_C1.txt';a.click();URL.revokeObjectURL(url);toast('Prompt exported')}
+function sendPrompt(){if(!$('promptOutput').value.startsWith('ROLE'))buildPrompt();const subject=encodeURIComponent('DOC ROI · Media Content House Master Prompt');const body=encodeURIComponent($('promptOutput').value.slice(0,12000));window.location.href=`mailto:?subject=${subject}&body=${body}`}
+function clearPrompt(){$('promptOutput').value='';$('savedNote').textContent='';toast('Prompt cleared')}
+
+$('generateBtn').addEventListener('click',buildPrompt);$('exampleBtn').addEventListener('click',loadExample);$('clearExampleBtn').addEventListener('click',clearExample);$('clearFormBtn').addEventListener('click',resetForm);$('copyBtn').addEventListener('click',copyPrompt);$('saveBtn').addEventListener('click',savePrompt);$('exportBtn').addEventListener('click',exportPrompt);$('sendBtn').addEventListener('click',sendPrompt);$('clearPromptBtn').addEventListener('click',clearPrompt);
+document.querySelectorAll('input,select,textarea').forEach(el=>el.addEventListener('input',updateScore));
+const saved=localStorage.getItem('docroi_media_content_house_prompt');if(saved){$('promptOutput').value=saved;$('savedNote').textContent='Saved prompt restored'}updateScore();
+</script>
+</body>
+</html>
