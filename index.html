@@ -192,9 +192,9 @@ section[id],div[id],.card{scroll-margin-top:108px}
 </head>
 <body>
 <header class="top"><a class="logo" href="https://doc-roi-my-cabinet.vercel.app/" target="_blank" rel="noreferrer"><img src="https://docroi.marketing/wp-content/uploads/2026/07/Logo_Negro_DoC_ROI.jpg" alt="DOC ROI"></a><nav class="topnav"><button id="topExample">Load Example</button><button id="topReset">Reset</button><a class="white" href="https://doc-roi-my-cabinet.vercel.app/" target="_blank" rel="noreferrer">My Cabinet</a></nav></header>
-<section class="hero"><div class="heroin"><span class="eyebrow">BUSINESS SPECIALIZATION · PAID & OWN MEDIA</span><h1>Build My Media Content House</h1><p>Turn customer, product and strategic evidence into a complete content and media system. Design web landing content, banners, social media and email with UTM traceability, expected response, planned cost and reusable prompts — then organise Owned and Paid activity into one measurable media plan.</p></div></section>
+<section class="hero"><div class="heroin"><span class="eyebrow">BUSINESS SPECIALIZATION · PAID & OWNED MEDIA</span><h1>Build My Media Content House</h1><p>Turn customer, product and strategic evidence into a complete content and media system. Design web landing content, banners, social media and email with UTM traceability, expected response, planned cost and reusable prompts — then organise Owned and Paid activity into one measurable media plan.</p></div></section>
 <main class="workspace">
-  <nav class="tabs"><button class="tab active" data-tab="foundation">Foundation</button><button class="tab" data-tab="factory" disabled>Content Factory</button><button class="tab" data-tab="plan" disabled>Receta: Plan de medios</button></nav>
+  <nav class="tabs"><button class="tab active" data-tab="foundation">Foundation</button><button class="tab" data-tab="factory" disabled>Content Factory</button><button class="tab" data-tab="plan" disabled>Media Plan Recipe</button></nav>
 
   <section class="panel active" id="panel-foundation">
     <div class="card"><div class="toolbar"><div><div class="kicker">01 · DATA FOUNDATION</div><h2>Load the evidence pack before producing content <span class="help" tabindex="0" data-tip="Use the CSV evidence you already have. Media Content House recognises each file by its columns, not by its filename. Four core files unlock the factory; the remaining files enrich Paid opportunity detection, customer ROI context and strategic guardrails.">i</span></h2><p class="subtle">Minimum required: Strategic Goals & Budget, Buyer Persona · 4P Keywords, Marketing Plan and Marketing / CRM Attribution Data. SEM Keyword Plan, Customer ROI Business Intelligence and SWOT Factor Register are enrichment inputs — useful, but they do not block the factory.</p></div><div class="actions"><button class="btn blue" id="foundationExample">Load Example</button><button class="btn secondary" id="foundationReset">Reset</button></div></div></div>
@@ -230,16 +230,16 @@ section[id],div[id],.card{scroll-margin-top:108px}
     <div class="card recipe-head">
   <div class="toolbar">
     <div>
-      <div class="kicker">04 · RECETA: PLAN DE MEDIOS</div>
-      <h2>Receta: Plan de medios · final deliverables <span class="help" tabindex="0" data-tip="The Excel workbook is the operational media-plan recipe: objectives, Owned and Paid inventory, costs, expected exposure, CTR, clicks, Paid opportunities and MQL landing handoff. The ZIP is the complete reusable prompt library for every piece added to the plan.">i</span></h2>
-      <p class="subtle">The final output is intentionally simple: one Excel workbook for the complete plan and one ZIP for the prompt library. No duplicate CSV or TXT downloads are required here.</p>
+      <div class="kicker">04 · MEDIA PLAN RECIPE</div>
+      <h2>Media Plan Recipe · Final Deliverables <span class="help" tabindex="0" data-tip="The Excel workbook is the operational media-plan recipe: objectives, Owned and Paid inventory, costs, expected exposure, CTR, clicks, Paid opportunities and MQL landing handoff. The ZIP is the complete reusable prompt library for every piece added to the plan.">i</span></h2>
+      <p class="subtle">The final output is intentionally simple: one Excel workbook containing the complete media plan and one ZIP file containing the full prompt library. No duplicate CSV or TXT downloads are required here.</p>
     </div>
     <div class="actions">
-      <button class="btn blue" id="planXlsx">Download Receta · Plan de medios Excel</button>
+      <button class="btn blue" id="planXlsx">Download Media Plan Recipe Excel</button>
       <button class="btn secondary" id="promptZip">Download Prompt Library ZIP</button>
     </div>
   </div>
-  <div class="recipe-output-note"><strong>Recipe logic:</strong> Owned, Shared and Earned remain visible but outside Paid spend. Paid pieces retain CPM, impressions, CTR, expected clicks, expected results, media cost, creative cost and total planned investment.</div><div class="recipe-output-note"><strong>MQL laboratory handoff:</strong> the Don Espadín classroom example now plans <strong>€100 of Paid media</strong> across Google Search, LinkedIn, Meta, two display banners and Click-to-WhatsApp. The campaign targets sum to <strong>26 new MQL leads from a 266-person simulation population</strong>, and all 26 are configured to be sent to <strong>SQL review</strong> in the next pill.</div>
+  <div class="recipe-output-note"><strong>Media plan logic:</strong> Owned, Shared and Earned remain visible but outside Paid spend. Paid pieces retain CPM, impressions, CTR, expected clicks, expected results, media cost, creative cost and total planned investment.</div><div class="recipe-output-note"><strong>MQL laboratory handoff:</strong> the Don Espadín classroom example now plans <strong>€100 of Paid media</strong> across Google Search, LinkedIn, Meta, two display banners and Click-to-WhatsApp. The campaign targets sum to <strong>26 new MQL leads from a 266-person simulation population</strong>, and all 26 are configured to be sent to <strong>SQL review</strong> in the next pill.</div>
   <div class="plan-kpis" id="planKpis"></div>
   <div id="budgetStatus"></div>
 </div>    <section class="card"><div class="kicker">PAID OPPORTUNITY MAP</div><h3>Evidence-led activation signals <span class="help" tabindex="0" data-tip="Use this map to see where Paid activation is already planned, where customer economics and paid keywords support a test, and where more caution is needed. It does not automatically move a piece into Paid; you still decide the POSE role in Content Factory.">i</span></h3><div class="paid-signal-grid" id="planPaidOpportunityMap"></div></section>
@@ -621,7 +621,7 @@ function downloadPlanExcel(){
   const paidMedia=paid.reduce((a,r)=>a+n(r.mediaCost),0),paidCreative=paid.reduce((a,r)=>a+n(r.creativeCost),0),mqlTarget=paid.reduce((a,r)=>a+n(r.targetMql),0),sqlTarget=paid.reduce((a,r)=>a+n(r.targetSql),0);
   const summary=[
     ['DOC ROI · Media Content House'],
-    ['RECETA: PLAN DE MEDIOS'],
+    ['MEDIA PLAN RECIPE'],
     [],
     ['Brand',state.foundation.brand],
     ['Offer',state.foundation.offer],
@@ -639,7 +639,7 @@ function downloadPlanExcel(){
     ['Target SQL handoffs',sqlTarget],
     ['SQL handoff rule','Every simulated MQL in the classroom example is sent to SQL review']
   ];
-  XLSX.utils.book_append_sheet(wb,XLSX.utils.aoa_to_sheet(summary),'Receta Plan de medios');
+  XLSX.utils.book_append_sheet(wb,XLSX.utils.aoa_to_sheet(summary),'Media Plan Recipe');
   XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(planExportRows(owned)),'Owned Content');
   XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(planExportRows(paid)),'Paid Content');
 
@@ -735,7 +735,7 @@ function downloadPlanExcel(){
   const web=webHandoffRows();
   XLSX.utils.book_append_sheet(wb,web.length?XLSX.utils.json_to_sheet(web):XLSX.utils.aoa_to_sheet([['No web landing content selected']]),'MQL Landing Handoff');
   XLSX.utils.book_append_sheet(wb,XLSX.utils.json_to_sheet(state.cart.map(r=>({ID:r.id,Type:r.kind,Format:r.sub,POSE:r.pose||'Owned',Prompt:r.prompt}))),'Prompts');
-  XLSX.writeFile(wb,'DOC_ROI_RECETA_PLAN_DE_MEDIOS.xlsx');
+  XLSX.writeFile(wb,'DOC_ROI_MEDIA_PLAN_RECIPE.xlsx');
 }
 async function downloadPromptLibraryZip(){
   if(!state.cart.length)return alert('No prompt library is ready yet. Use Content Factory → Add to Media Plan, or Load Example to prepare the complete classroom recipe automatically.');
