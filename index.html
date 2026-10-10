@@ -2356,6 +2356,7 @@ renderProjectNavigator();renderActivationSummary();renderPlan();
   function updateV19SaveButton(){const b=q('#addActivationToPlan');if(!b)return;const r=activeRow();if(r&&!state.v19Dirty&&isSavedRow(r)){b.textContent='Saved ✓';b.classList.add('is-saved');b.classList.remove('is-dirty');b.disabled=true}else if(r&&state.v19Dirty){b.textContent='Save changes';b.classList.add('is-dirty');b.classList.remove('is-saved');b.disabled=false}else if(r){b.textContent='Confirm & save content sheet';b.classList.add('is-dirty');b.classList.remove('is-saved');b.disabled=false}else if(activePiece()){b.textContent='Save content sheet';b.classList.add('is-dirty');b.classList.remove('is-saved');b.disabled=false}else{b.textContent='Save content sheet';b.disabled=true}}
 
   function readActivationForm(){
+    if(document.querySelector('#caFunctional #caForm #caHeadline'))return;
     const a=state.activation;const val=(id,fallback='')=>q(id)?.value??fallback,checked=id=>!!q(id)?.checked;
     a.assetName=val('#actAssetName',a.assetName);a.creativePieceId=val('#actCreative',a.creativePieceId);a.headline=val('#actHeadline',a.headline);a.body=val('#actBody',a.body);a.cta=val('#actCta',a.cta);a.destination=val('#actDestination',a.destination);a.pose=val('#actPose',a.pose);a.marketingPolicy=val('#actPolicy',a.marketingPolicy);a.campaign=val('#actCampaign',a.campaign);a.objective=val('#actObjective',a.objective);a.utmEnabled=q('#actUtmEnabled')?checked('#actUtmEnabled'):a.utmEnabled;a.utmSource=val('#actUtmSource',a.utmSource);a.utmMedium=val('#actUtmMedium',a.utmMedium);a.utmCampaign=val('#actUtmCampaign',a.utmCampaign);a.utmContent=val('#actUtmContent',a.utmContent);a.utmTerm=val('#actUtmTerm',a.utmTerm);a.measureCPM=q('#actMeasureCPM')?checked('#actMeasureCPM'):a.measureCPM;a.measureCTR=q('#actMeasureCTR')?checked('#actMeasureCTR'):a.measureCTR;a.impressions=Number(val('#actImpressions',a.impressions)||0);a.cpm=Number(val('#actCpm',a.cpm)||0);a.ctr=Number(val('#actCtr',a.ctr)||0);a.targetMql=Number(val('#actTargetMql',a.targetMql)||0);a.targetSql=Number(val('#actTargetSql',a.targetSql)||0);
   }
@@ -2364,7 +2365,7 @@ renderProjectNavigator();renderActivationSummary();renderPlan();
     readActivationForm();const a=state.activation;if(!(a.medium&&a.support&&a.format))return alert('Complete Medium → Support → Format first.');const p=activePiece()||activationCreative();if(!p)return alert('Select a saved Creative Piece.');
     const clicks=n(a.impressions)*n(a.ctr)/100,existing=activeRow(),id=existing?.id||('MCH-'+String(state.nextId++).padStart(3,'0'));const row={...(existing||{}),id,name:a.assetName||p.name||`${a.support} · ${humanFormat(a.format)}`,kind:'Content Asset',sub:`${a.support} · ${humanFormat(a.format)}`,system:'Internet',medium:a.medium,support:a.support,format:humanFormat(a.format),device:a.device,creativePieceId:p.id,sourceAssetId:p.assetId,policy:a.marketingPolicy,pose:a.pose,party:a.pose==='Paid'?'3rd-party':'1st-party',objective:a.objective||state.foundation.objectiveName,campaign:a.campaign,utm:activationTrackedUrl(),utm_source:a.utmSource,utm_medium:a.utmMedium,utm_campaign:a.utmCampaign,utm_content:a.utmContent,utm_term:a.utmTerm,pricingBasis:a.pricingBasis||'CPM',exposure:n(a.impressions),cpm:a.measureCPM?n(a.cpm):0,ctr:a.measureCTR?n(a.ctr):0,clicks,results:n(a.targetMql),targetMql:n(a.targetMql),targetSql:n(a.targetSql),newLeadOnly:'YES',mediaCost:0,creativeCost:0,totalCost:0,prompt:activationPrompt(),snapshot:{image:activationImage(),headline:a.headline,body:a.body,cta:a.cta,format:a.format,medium:a.medium,support:a.support,headlineSize:p.headlineSize||28,bodySize:p.bodySize||13,ctaSize:p.ctaSize||10},html:activationHtml(),_reviewed:true,_savedAt:new Date().toISOString()};
     if(existing)Object.assign(existing,row);else state.cart.push(row);state.activeAssetId=id;state.v19ActiveCreativeId=p.id;state.v19Dirty=false;renderPlan();renderProjectNavigator();renderActivationSummary();updateTabLocks();
-    const pending=(state.creativePieces||[]).find(cp=>!rowsForPiece(cp.id).some(x=>x._reviewed));if(pending&&pending.id!==p.id)setTimeout(()=>v19StartCreative(pending.id),350);else if((state.cart||[]).every(x=>x._reviewed))setTimeout(()=>showTab('plan'),650);
+    /* Stay on the validated card; users choose the next one themselves. */
   };
 
   renderActivationSummary=function(){
@@ -2519,7 +2520,15 @@ renderProjectNavigator();renderActivationSummary();renderPlan();
   function readForm(){const a=state.activation;const val=id=>q(id)?.value||'';a.assetName=val('#caName');a.creativePieceId=val('#caCreative')||a.creativePieceId;a.headline=val('#caHeadline');a.body=val('#caBody');a.cta=val('#caCta');a.destination=val('#caDestination');a.pose=val('#caPose')||a.pose;a.marketingPolicy=val('#caPolicy')||a.marketingPolicy;a.campaign=val('#caCampaign');a.objective=val('#caObjective');a.utmEnabled=!!q('#caUtmEnabled')?.checked;a.utmSource=val('#caUtmSource');a.utmMedium=val('#caUtmMedium');a.utmCampaign=val('#caUtmCampaign');a.utmContent=val('#caUtmContent');a.utmTerm=val('#caUtmTerm');a.impressions=Number(val('#caImpressions')||0);a.cpm=Number(val('#caCpm')||0);a.ctr=Number(val('#caCtr')||0);a.targetMql=Number(val('#caMql')||0);a.targetSql=Number(val('#caSql')||0)}
   function renderPreviewSimple(){const inner=q('#caPreviewInner'),title=q('#caPreviewTitle'),line=q('#caRouteLine');if(!inner)return;const p=currentPiece(),r=rowById(state.activeAssetId);if(!p&&!r){inner.innerHTML='<div class="ca-empty">Choose a creative piece above.</div>';title.textContent='Select a creative piece';return}try{renderActivationPreview();const src=q('#activationCanvas');inner.innerHTML=src?.innerHTML||'<div class="ca-empty">Preview not available.</div>'}catch(e){inner.innerHTML='<div class="ca-empty">Preview could not be rendered. Check Medium, Support and Format.</div>'}title.textContent=state.activation.assetName||r?.name||p?.name||'Content asset';line.textContent=`Medium ${state.activation.medium||'—'} · Support ${state.activation.support||'—'} · Format ${formatById(state.activation.format)?.label||'—'} · ${state.activation.utmEnabled?'UTM ready':'UTM off'}`;qa('[data-ca-device]').forEach(b=>b.classList.toggle('active',state.activation.device===b.dataset.caDevice));updateUtmDisplays()}
   function renderQueue(){const grid=q('#caQueueGrid'),count=q('#caQueueCount'),bar=q('#caProgress');if(!grid)return;const rows=state.cart||[],validated=rows.filter(isValidated),total=Math.max(rows.length,(state.creativePieces||[]).length,1);count.textContent=`${validated.length}/${total} validated`;bar.style.width=Math.round(validated.length/total*100)+'%';grid.innerHTML=validated.length?validated.map(r=>`<div class="ca-q"><strong>${esc(r.name||r.id)}</strong><small>${esc(r.medium||'—')} → ${esc(r.support||'—')} → ${esc(r.format||'—')}<br>${r.utm?'UTM ready':'UTM pending'} · Validated</small></div>`).join(''):'<div class="ca-empty">No validated Content Assets are ready for MQL yet.</div>'}
-  function renderAllSimple(){ensureUI();renderCards();renderSelected();renderRoute();renderForm();renderPreviewSimple();renderQueue()}
+  function caRepairRoute(){
+    const r=rowById(state.activeAssetId),p=currentPiece(),a=state.activation;
+    if(!r&&!p)return;
+    if(!a.creativePieceId&&p)a.creativePieceId=p.id;
+    if(!a.medium)a.medium=r?.medium||((p?.template==='mrec'||p?.template==='leader')?'Display':p?.template==='story'?'Social Media':'Web / Blog');
+    if(!a.support){const available=[...(MEDIUM_SUPPORTS[a.medium]||[]),...((state.customSupports||{})[a.medium]||[])];a.support=(r?.support&&available.includes(r.support))?r.support:(available[0]||r?.support||'');}
+    if(!a.format){const candidate=fmtIdFromRow(r);const all=ACTIVATION_FORMATS.filter(f=>f.mediums.includes(a.medium)&&(!SUPPORT_FORMATS[a.support]||SUPPORT_FORMATS[a.support].includes(f.id)));a.format=(candidate&&all.some(f=>f.id===candidate))?candidate:(all[0]?.id||candidate||'');}
+  }
+  function renderAllSimple(){ensureUI();caRepairRoute();renderCards();renderSelected();renderRoute();renderForm();renderPreviewSimple();renderQueue()}
   function saveCurrent(validate=true){readForm();if(!(state.activation.medium&&state.activation.support&&state.activation.format))return alert('Complete Medium → Support → Format first.');if(!currentPiece())return alert('Select a Creative Piece.');const beforeId=state.activeAssetId;addActivationToPlan();const row=rowById(state.activeAssetId)||(!beforeId?(state.cart||[]).slice(-1)[0]:rowById(beforeId));if(row){row._caValidated=!!validate;row._caReviewed=!!validate;state.activeAssetId=row.id}renderAllSimple();renderPlan();updateTabLocks()}
   function bindStatic(){q('#caNew').onclick=()=>{const p=(state.creativePieces||[])[0];if(!p)return alert('Create and validate a Creative Piece first.');openPiece(p.id)};q('#caDraft').onclick=()=>saveCurrent(false);q('#caSave').onclick=()=>saveCurrent(true);q('#caRefresh').onclick=()=>{readForm();renderPreviewSimple();updateUtmDisplays()};q('#caDownload').onclick=()=>{readForm();if(!(state.activation.medium&&state.activation.support&&state.activation.format))return alert('Complete Medium → Support → Format first.');dl((state.activation.assetName||'content-asset').replace(/[^a-z0-9]+/gi,'_')+'.html',activationHtml(),'text/html')};const copy=q('#caCopyHeader');if(copy)copy.onclick=copyFinalUtm;qa('[data-ca-device]').forEach(b=>b.onclick=()=>{state.activation.device=b.dataset.caDevice;renderPreviewSimple()})}
   const oldLoad=window.loadExample; if(typeof oldLoad==='function'){window.loadExample=function(){oldLoad();(state.cart||[]).forEach(r=>{r._caReviewed=true;r._caValidated=true});setTimeout(()=>{ensureUI();const first=(state.cart||[])[0];if(first)openRow(first.id);else renderAllSimple()},0)}}
@@ -3053,7 +3062,7 @@ renderProjectNavigator();renderActivationSummary();renderPlan();
  function bridge(){const host=q('#caWork .ca-config');if(!host)return null;let el=q('#contentImageBridge');if(!el){el=document.createElement('div');el.className='docroi-image-bridge';el.id='contentImageBridge';el.innerHTML='<div class="docroi-image-bridge-head"><div><div class="kicker">VISUAL SOURCE · CONTENT ASSET</div><h3>Choose a source image for this content piece</h3><p>Click an image label, or upload your own photograph. The chosen image updates the working piece and its exported HTML. Review the preview and validate again.</p></div></div><div class="docroi-image-row"><div><label for="contentImageSource" style="font-size:12px;font-weight:800;display:block;margin-bottom:6px">Approved project image</label><select id="contentImageSource" aria-label="Choose an image for this content piece"></select></div><label class="btn blue" for="contentImageUpload">Upload my image<input id="contentImageUpload" type="file" accept="image/png,image/jpeg,image/webp,image/gif,image/svg+xml"></label></div><div id="contentImageTiles" class="docroi-image-tiles" aria-label="Choose a project image by its label"></div><div class="docroi-image-state" id="contentImageState">Choose a Creative Piece first, then select a source.</div>';q('#caSelected',host)?.after(el);q('#contentImageSource').addEventListener('change',e=>selectImage(e.target.value));q('#contentImageUpload').addEventListener('change',async e=>{const f=e.target.files?.[0];if(!f)return;if(!/^image\//.test(f.type)){imageStatus('Please select a supported image file.');return}if(f.size>12*1024*1024){imageStatus('This image is larger than 12 MB. Choose a smaller file for this browser-based project.');return}try{const url=await new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(r.result);r.onerror=reject;r.readAsDataURL(f)});const id='ASSET-'+String(state.nextAssetId++).padStart(3,'0');state.assets.push({id,label:f.name.replace(/\.[^.]+$/,'').slice(0,90),category:'Content asset image',url,origin:'Uploaded by project user',filename:f.name,mime:f.type});selectImage(id);imageStatus('Image uploaded and linked to your selected content piece. Review and validate the result.')}catch(err){imageStatus('Image could not be loaded: '+err.message)}e.target.value='';});}
  return el;}
  function syncImageControls(){const root=bridge();if(!root)return;const assets=state.assets||[],sel=q('#contentImageSource',root);if(!sel)return;const current=currentAssetId();sel.innerHTML='<option value="">Choose a project source...</option>'+assets.map(a=>'<option value="'+safe(a.id)+'" '+(a.id===current?'selected':'')+'>'+safe(a.label||a.id)+' · '+safe(a.category||'Source')+'</option>').join('');const tiles=q('#contentImageTiles',root);tiles.innerHTML=assets.map(a=>'<button type="button" class="docroi-image-tile '+(a.id===current?'active':'')+'" data-image-pick="'+safe(a.id)+'" aria-label="Use '+safe(a.label||a.id)+'" title="'+safe(a.label||a.id)+'"><img src="'+safe(a.url)+'" alt=""><small>'+safe(a.label||a.id)+'</small></button>').join('');qa('[data-image-pick]',tiles).forEach(b=>b.addEventListener('click',()=>selectImage(b.dataset.imagePick)));imageStatus(piece()?'Image selected: '+((assets.find(a=>a.id===current)||{}).label||'Review the current source and preview.'):'Choose a Creative Piece above before assigning an image.');}
- function selectImage(id){const a=(state.assets||[]).find(x=>x.id===id);if(!a){imageStatus('Select an uploaded image.');return}const p=piece(),r=activeRow();if(!p&&!r){imageStatus('Choose one Creative Piece from the Content Asset Repository before assigning an image.');return}if(p){p.assetId=id;p.sourceUrl=a.url;p.validated=false;}if(r){r.sourceAssetId=id;r.snapshot={...(r.snapshot||{}),image:a.url};r._caValidated=false;r._caReviewed=false;}if(state.activation){state.activation.assetId=id;state.activation.image=a.url;}if(typeof renderAssets==='function')renderAssets();if(typeof renderActivationPreview==='function')renderActivationPreview();if(typeof renderActivationSummary==='function')renderActivationSummary();if(typeof renderPlan==='function')renderPlan();if(typeof showTab==='function')showTab('factory',{scroll:false});setTimeout(syncImageControls,40);}
+ function selectImage(id){const a=(state.assets||[]).find(x=>x.id===id);if(!a){imageStatus('Select an uploaded image.');return}const p=piece(),r=activeRow();if(!p&&!r){imageStatus('Choose one Creative Piece from the Content Asset Repository before assigning an image.');return}if(p){p.assetId=id;p.sourceUrl=a.url;p.validated=false;}if(r){r.sourceAssetId=id;r.snapshot={...(r.snapshot||{}),image:a.url};r._caValidated=false;r._caReviewed=false;}if(state.activation){state.activation.assetId=id;state.activation.image=a.url;}if(typeof renderAssets==='function')renderAssets();if(typeof renderActivationPreview==='function')renderActivationPreview();if(typeof renderActivationSummary==='function')renderActivationSummary();if(typeof renderPlan==='function')renderPlan();if(typeof showTab==='function')showTab('factory',{scroll:false});setTimeout(()=>{syncImageControls();const preview=q('#caRefresh');if(preview)preview.click();},70);}
  function bind(){const button=q('.workflow-tabs [data-tab="scorecard"]');if(button)button.onclick=()=>{showTab('scorecard',{scroll:false});renderKpis();const w=q('.workspace');if(w)w.scrollIntoView({block:'start',behavior:'auto'})};const c=q('#opKpiCsv'),t=q('#opKpiTemplate');if(c)c.onclick=()=>download('DOC_ROI_Content_KPI_MQL_Contract.csv',asCSV(kpiRows()));if(t)t.onclick=()=>download('DOC_ROI_Content_KPI_Results_Template.csv',asCSV(kpiRows()));
   // Do not replace existing working navigation or creative engines. Observe their content-sheet render lifecycle.
   const root=q('#panel-factory');if(root){const observer=new MutationObserver(()=>{if(q('#caWork .ca-config')&&!q('#contentImageBridge'))syncImageControls()});observer.observe(root,{childList:true,subtree:true});}
@@ -3070,6 +3079,105 @@ renderProjectNavigator();renderActivationSummary();renderPlan();
   const originalShow=window.showTab;if(typeof originalShow==='function')window.showTab=function(name,options){const result=originalShow(name,options);if(name==='factory')setTimeout(syncImageControls,30);if(name==='scorecard')renderKpis();return result};
  }
  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',bind,{once:true});else bind();
+})();
+</script>
+
+<style id="docroi-v34-critical-preview-contrast">
+/* Production correction: image-backed copies must be readable both in previews and edits. */
+#panel-factory #caPreviewInner .cascade-live-card,
+#panel-factory #caPreviewInner .display-frame,
+#panel-factory #caPreviewInner .mch-web-l1-preview,
+#panel-assets .creative-stage { background-color:#091827!important;color:#fff!important; }
+#panel-factory #caPreviewInner .cascade-live-card .veil{background:linear-gradient(90deg,rgba(2,12,22,.94) 0%,rgba(2,12,22,.70) 60%,rgba(2,12,22,.14) 100%)!important;}
+#panel-factory #caPreviewInner .cascade-live-card .ccopy :is(small,h3,p),
+#panel-factory #caPreviewInner .display-frame .content :is(small,h3,p),
+#panel-factory #caPreviewInner .mch-web-l1-preview .mch-web-copy :is(small,h3,p),
+#panel-assets .creative-stage .creative-copy :is(small,h4,p){color:#fff!important;text-shadow:0 2px 9px rgba(0,0,0,.85)!important;opacity:1!important;}
+#panel-factory #caPreviewInner .cascade-live-card a,
+#panel-factory #caPreviewInner .display-frame .content a {background:#fff!important;color:#0B0F19!important;text-shadow:none!important;}
+#panel-assets .creative-stage .creative-shade{background:linear-gradient(180deg,rgba(0,0,0,.07) 0%,rgba(0,0,0,.78) 100%)!important;}
+#panel-factory #caPreviewInner .article-frame article{background:#fff;color:#0B0F19!important;}
+#panel-factory #caPreviewInner .article-frame :is(h1,h2,h3,p){color:#0B0F19!important;text-shadow:none!important;}
+#caPreviewInner .docroi-v34-banner{position:relative;isolation:isolate;width:min(100%,820px);min-height:320px;border-radius:11px;overflow:hidden;background:#091827;display:flex;align-items:end;color:#fff;}
+#caPreviewInner .docroi-v34-banner>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+#caPreviewInner .docroi-v34-banner .v34-veil{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(3,13,25,.94),rgba(3,13,25,.66) 58%,rgba(3,13,25,.32));}
+#caPreviewInner .docroi-v34-banner .v34-copy{padding:clamp(18px,4vw,34px);width:85%;}
+#caPreviewInner .docroi-v34-banner :is(small,h3,p){color:#fff!important;text-shadow:0 2px 11px rgba(0,0,0,.88)!important;}
+#caPreviewInner .docroi-v34-banner small{font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:900;}
+#caPreviewInner .docroi-v34-banner h3{font-size:clamp(25px,3.5vw,46px);line-height:1.05;margin:12px 0;}
+#caPreviewInner .docroi-v34-banner p{font-size:clamp(13px,1.4vw,16px);line-height:1.5;margin:0 0 18px;}
+#caPreviewInner .docroi-v34-banner a{display:inline-flex;background:#fff;color:#0B0F19!important;text-decoration:none;padding:11px 15px;border-radius:8px;font-weight:900;}
+@media(max-width:650px){#caPreviewInner .docroi-v34-banner{min-height:380px;}#caPreviewInner .docroi-v34-banner .v34-copy{width:100%;padding:18px;}#caPreviewInner .docroi-v34-banner .v34-veil{background:linear-gradient(0deg,rgba(3,13,25,.96),rgba(3,13,25,.42));}}
+</style>
+
+<script id="docroi-v34-production-content-fix">
+/* Small additive production patch. Original product, creative and MQL data engines remain untouched. */
+(function(){
+ const $=(s,c=document)=>c.querySelector(s);
+ const escV=s=>String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+ const row=()=> (state.cart||[]).find(r=>r.id===state.activeAssetId)||null;
+ const current=()=>state.activation||{};
+ const isWebBanner=()=>{const a=current(),r=row();return a.medium==='Web / Blog' && /banner|web route|cascadecard/i.test([a.format,a.support,r?.name,r?.format].join(' '))&&!/Level 1/i.test(a.support||'');};
+ function bannerMarkup(){const a=current(),r=row();if(!isWebBanner())return null;
+   const image=(r?.snapshot?.image||(state.creativePieces||[]).find(x=>x.id===a.creativePieceId)?.sourceUrl|| (state.assets||[]).find(x=>x.id===a.assetId)?.url||'');
+   const url=typeof activationTrackedUrl==='function'?activationTrackedUrl():a.destination||'#';
+   const headline=a.headline||r?.snapshot?.headline||'Discover the product';
+   const body=a.body||r?.snapshot?.body||'Explore the product and learn more.';
+   return `<div class="docroi-v34-banner">${image?`<img src="${escV(image)}" alt="">`:''}<div class="v34-veil"></div><div class="v34-copy"><small>${escV(a.marketingPolicy||'Product')} · ${escV(a.support||'Web')}</small><h3>${escV(headline)}</h3><p>${escV(body)}</p><a href="${escV(url)}" target="_blank" rel="noopener">${escV(a.cta||'Explore')}</a></div></div>`;
+ }
+ const oldPreview=window.renderActivationPreview;
+ if(typeof oldPreview==='function')window.renderActivationPreview=function(){const b=bannerMarkup();if(b){const box=$('#activationCanvas');if(box)box.innerHTML=b;const title=$('#activationCanvasTitle');if(title)title.textContent=current().assetName||row()?.name||'Content preview';return;}return oldPreview.apply(this,arguments);};
+ const oldHTML=window.activationHtml;
+ if(typeof oldHTML==='function')window.activationHtml=function(){const visual=bannerMarkup();if(!visual){const html=oldHTML.apply(this,arguments);return typeof html==='string'?html.replace('</head>','<style>.cascade-live-card .ccopy :is(small,h3,p),.display-frame .content :is(small,h3,p){color:#fff!important;text-shadow:0 2px 9px #000!important}.cascade-live-card .veil{background:linear-gradient(90deg,rgba(3,12,25,.92),rgba(3,12,25,.25))!important}</style></head>'):html;}
+  const css=document.querySelector('#docroi-v34-critical-preview-contrast')?.textContent||'';
+  const extra=css.replaceAll('#caPreviewInner ','').replaceAll('#panel-factory ','').replaceAll('max-width:650px','max-width:650px');
+  return `<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escV(current().assetName||'Content Asset')}</title><style>body{margin:0;padding:24px;background:#f2f5f7;font-family:Inter,Arial,sans-serif}.docroi-v34-banner{margin:0 auto;box-shadow:0 16px 50px #001a2833} ${extra}</style></head><body>${visual}</body></html>`;
+ };
+ function refreshVisible(){
+   const el=$('#caPreviewInner');if(!el)return;
+   const active=row(),a=current();
+   if(!active&&!a.creativePieceId)return;
+   const preview=window.renderActivationPreview;
+   if(typeof preview==='function'){try{preview();const legacy=$('#activationCanvas');if(legacy?.innerHTML){el.innerHTML=legacy.innerHTML;const title=$('#caPreviewTitle');if(title)title.textContent=a.assetName||active?.name||'Content asset';}}catch(e){console.warn('Preview recovery',e)}}
+ }
+ window.DOCROI_refreshContentPreview=refreshVisible;
+ const factoryTab=$('.workflow-tabs [data-tab="factory"]');if(factoryTab)factoryTab.addEventListener('click',()=>setTimeout(refreshVisible,200));
+ const demo=$('#topExample');if(demo)demo.addEventListener('click',()=>setTimeout(()=>{
+  if(!(state.cart||[]).length)return;
+  if(!state.activeAssetId){const c=$('[data-ca-open^="row:"]');if(c)c.click();}
+  refreshVisible();
+  /* The HTML library must contain the same legible version shown in the live preview. */
+  const oldActive=state.activeAssetId,oldAct={...state.activation};
+  const masterPolicyCopy={
+   Product:{headline:'Discover the origin of Don Espadín',body:'A 750 ml Oaxaca mezcal at €99.99. Explore the product or request commercial information through a separate permission-based enquiry.',cta:'Explore the product'},
+   Price:{headline:'€5 towards your next purchase',body:'Today’s bottle price remains €99.99. An eligible €5 voucher can be used on a future purchase only; it is not an immediate discount.',cta:'Discover the future voucher'},
+   Promotion:{headline:'A premium gift case · included',body:'Choose the complimentary presentation case for an eligible order. Estimated accessory cost: €2. One commercial benefit per order.',cta:'Discover the gift case'},
+   Placement:{headline:'Complimentary delivery · save €9.99',body:'An eligible purchase may receive complimentary delivery instead of the standard €9.99 charge, subject to available marketing budget and release.',cta:'Explore delivery conditions'}
+  };
+  /* Current Product policy overwrites obsolete launch phrases from older teaching banners. */
+  (state.cart||[]).filter(r=>r.productPageMaster || /^MCH-WEB-/i.test(r.id||'')).forEach(r=>{
+    const policy=String(r.policy||'');const c=masterPolicyCopy[policy];if(!c)return;
+    r.snapshot={...(r.snapshot||{}),headline:c.headline,body:c.body,cta:c.cta};
+    const piece=(state.creativePieces||[]).find(p=>p.id===r.creativePieceId);
+    if(piece){piece.headline=c.headline;piece.body=c.body;piece.cta=c.cta;}
+  });
+  try{
+   (state.cart||[]).filter(r=>r.medium==='Web / Blog' && /web banner/i.test(r.name||'')&&!/Level 1/i.test(r.support||'')).forEach(r=>{
+     state.activeAssetId=r.id;
+     state.activation={...oldAct,assetName:r.name,medium:r.medium,support:r.support,format:r.snapshot?.format||r.format,marketingPolicy:r.policy,headline:r.snapshot?.headline||'',body:r.snapshot?.body||'',cta:r.snapshot?.cta||'',destination:(r.utm||'').split('?')[0],creativePieceId:r.creativePieceId,utmEnabled:false};
+     r.html=window.activationHtml();
+   });
+   (state.cart||[]).filter(r=>r.productPageMaster || /^MCH-WEB-/i.test(r.id||'')).forEach(r=>{
+     state.activeAssetId=r.id;
+     state.activation={...oldAct,assetName:r.name,medium:'Web / Blog',support:'Ficha de Producto · Level 1',format:'webbannerl1',marketingPolicy:r.policy,headline:r.snapshot.headline,body:r.snapshot.body,cta:r.snapshot.cta,creativePieceId:r.creativePieceId,destination:'https://ecom-blue-omega.vercel.app/',utmEnabled:false};
+     r.html=window.activationHtml();
+   });
+  }catch(err){console.warn('Web banner export alignment',err)}finally{state.activeAssetId=oldActive;state.activation=oldAct;}
+  if((state.cart||[]).some(r=>r.id===oldActive && (r.productPageMaster || /^MCH-WEB-/i.test(r.id||'')))){
+    const row=(state.cart||[]).find(r=>r.id===oldActive);if(row){state.activation.headline=row.snapshot.headline;state.activation.body=row.snapshot.body;state.activation.cta=row.snapshot.cta;refreshVisible();}
+  }
+ },950));
+ const reset=$('#topReset');if(reset)reset.addEventListener('click',()=>setTimeout(()=>{const el=$('#caPreviewInner');if(el)el.innerHTML='<div class="ca-empty">Create a Creative Piece, then select it here to preview your own content.</div>'},250));
 })();
 </script>
 </body></html>
